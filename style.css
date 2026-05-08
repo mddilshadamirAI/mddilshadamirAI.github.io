@@ -89,3 +89,74 @@ h1 { font-size: 4rem; font-weight: 800; margin-bottom: 10px; }
     h1 { font-size: 2.5rem; }
     .nav-links { display: none; } /* Mobile optimization */
 }
+
+/* SKILLS SECTION */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+.skill-item span { display: block; margin-bottom: 10px; font-weight: 600; }
+.progress-bar {
+    background: rgba(255,255,255,0.1);
+    height: 8px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.progress {
+    background: var(--accent);
+    height: 100%;
+    box-shadow: 0 0 10px var(--accent);
+}
+
+/* TIMELINE SECTION */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+}
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background: var(--accent);
+    top: 0; bottom: 0; left: 50%;
+}
+.timeline-event {
+    padding: 20px 40px;
+    position: relative;
+    width: 50%;
+}
+.timeline-event:nth-child(odd) { left: 0; text-align: right; }
+.timeline-event:nth-child(even) { left: 50%; text-align: left; }
+.event-date {
+    color: var(--accent);
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+/* QUOTE SECTION */
+.quote-section {
+    padding: 100px 15%;
+    text-align: center;
+}
+.big-quote {
+    font-size: 2rem;
+    font-style: italic;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+.quote-author {
+    color: var(--accent);
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* RESPONSIVE TIMELINE */
+@media (max-width: 768px) {
+    .timeline::after { left: 31px; }
+    .timeline-event { width: 100%; padding-left: 70px; text-align: left !important; }
+    .timeline-event:nth-child(even) { left: 0; }
+}
