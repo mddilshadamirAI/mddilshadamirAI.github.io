@@ -135,3 +135,47 @@ nav {
     .site-footer { padding: 50px 5% 20px; text-align: center; }
     .footer-links a { display: inline-block; margin: 5px 10px; }
 }
+/* JOURNEY & QUALIFICATIONS LAYOUT */
+.journey-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Story gets more space */
+    gap: 50px;
+    align-items: start;
+}
+
+.qual-item {
+    margin-bottom: 30px;
+    border-left: 2px solid var(--accent);
+    padding-left: 20px;
+}
+
+.qual-year {
+    font-weight: 800;
+    color: var(--accent);
+    display: block;
+    font-size: 0.9rem;
+}
+
+.qual-item h4 {
+    margin: 5px 0;
+    font-size: 1.2rem;
+}
+
+.qual-item p {
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+
+.story-content p {
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 992px) {
+    .journey-container {
+        grid-template-columns: 1fr;
+    }
+}
