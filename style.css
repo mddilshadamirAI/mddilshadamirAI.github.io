@@ -5,6 +5,7 @@
     --glass: rgba(255, 255, 255, 0.03);
     --border: rgba(255, 255, 255, 0.1);
     --footer-grad: linear-gradient(135deg, #3d3d4d 0%, #4a443d 100%);
+    --quote-grad: linear-gradient(90deg, #00f7ff, #7000ff);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -28,35 +29,28 @@ nav {
     backdrop-filter: blur(15px); border-bottom: 1px solid var(--border);
 }
 
-.logo-container { display: flex; align-items: center; gap: 12px; }
-
+.logo-container { display: flex; align-items: center; }
 .main-logo {
     height: 40px; width: auto; border-radius: 8px;
     box-shadow: 0 0 15px var(--accent); transition: transform 0.3s ease;
 }
 .main-logo:hover { transform: scale(1.1); }
 
-.logo-text { font-weight: 700; letter-spacing: 1px; }
-
 .nav-links { display: flex; list-style: none; gap: 25px; }
-.nav-links a { 
-    color: white; text-decoration: none; font-size: 0.9rem; transition: 0.3s; 
-}
+.nav-links a { color: white; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
 .nav-links a:hover { color: var(--accent); text-shadow: 0 0 10px var(--accent); }
 
-/* 3. HERO BANNER SECTION (Refined) */
+/* 3. HERO BANNER SECTION */
 .banner-hero {
     height: 100vh; width: 100%; display: flex;
     align-items: center; justify-content: center;
-    background: var(--bg); overflow: hidden;
-    position: relative; padding-top: 80px;
+    background: var(--bg); position: relative; padding-top: 80px;
 }
 
 .banner-wrapper {
     position: relative; width: 90%; max-width: 1600px;
     transform: perspective(1000px) rotateX(0deg);
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
-    border-radius: 20px;
+    transition: 0.5s ease; border-radius: 20px;
     box-shadow: 0 0 50px rgba(0, 247, 255, 0.2);
 }
 
@@ -73,157 +67,33 @@ nav {
     pointer-events: none; opacity: 0.3;
 }
 
-/* 4. CONTENT & CARDS */
-.glass-wrap { padding: 100px 8%; }
-.section-title { font-size: 2.5rem; margin-bottom: 20px; color: var(--accent); }
-.center-title { text-align: center; font-size: 3rem; margin-top: 50px; }
-.cyan-glow { color: var(--accent); text-shadow: 0 0 20px rgba(0, 247, 255, 0.5); }
-
-.card-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; padding: 50px 8%; }
-
-.glass-card {
-    background: var(--glass); border: 1px solid var(--border);
-    backdrop-filter: blur(10px); padding: 40px; border-radius: 25px;
-    width: 350px; transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-.glass-card:hover {
-    background: rgba(255, 255, 255, 0.08); transform: scale(1.05);
-    border-color: var(--accent);
-}
-
-.btn-sm {
-    display: inline-block; margin-top: 20px; padding: 10px 20px;
-    border: 1px solid var(--accent); color: var(--accent);
-    text-decoration: none; border-radius: 10px; font-weight: 600; transition: 0.3s;
-}
-.btn-sm:hover { background: var(--accent); color: black; }
-
-/* 5. SKILLS & TIMELINE */
-.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
-.progress-bar { background: rgba(255,255,255,0.1); height: 8px; border-radius: 10px; overflow: hidden; }
-.progress { background: var(--accent); height: 100%; box-shadow: 0 0 10px var(--accent); }
-
-.timeline { position: relative; max-width: 800px; margin: 50px auto; padding: 20px; }
-.timeline::after { content: ''; position: absolute; width: 2px; background: var(--accent); top: 0; bottom: 0; left: 50%; }
-.timeline-event { padding: 20px 40px; position: relative; width: 50%; }
-.timeline-event:nth-child(odd) { left: 0; text-align: right; }
-.timeline-event:nth-child(even) { left: 50%; text-align: left; }
-
-/* 6. FOOTER (Light Brownish-Blue) */
-.site-footer {
-    background: var(--footer-grad); color: #e0e0e0;
-    padding: 80px 10% 20px; margin-top: 100px;
-    border-top: 1px solid var(--border);
-}
-
-.footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; padding-bottom: 50px; }
-.footer-content h3 { color: var(--accent); margin-bottom: 20px; font-size: 1.2rem; }
-.footer-contact a, .footer-links a { color: #ffffff; text-decoration: none; display: block; margin-bottom: 10px; transition: 0.3s; opacity: 0.8; }
-.footer-contact a:hover, .footer-links a:hover { color: var(--accent); opacity: 1; transform: translateX(5px); }
-
-.thanks-msg { font-weight: bold; font-size: 1.1rem; color: #ffffff; margin-bottom: 10px; }
-.footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.8rem; opacity: 0.5; }
-
-/* 7. COMBINED MOBILE OPTIMIZATION */
-@media (max-width: 768px) {
-    .nav-links { display: none; }
-    .banner-hero { padding-top: 60px; }
-    .banner-wrapper { width: 95%; }
-    .timeline::after { left: 31px; }
-    .timeline-event { width: 100%; padding-left: 70px; text-align: left !important; }
-    .timeline-event:nth-child(even) { left: 0; }
-    .site-footer { padding: 50px 5% 20px; text-align: center; }
-    .footer-links a { display: inline-block; margin: 5px 10px; }
-}
-/* JOURNEY & QUALIFICATIONS LAYOUT */
-.journey-container {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr; /* Story gets more space */
-    gap: 50px;
-    align-items: start;
-}
-
-.qual-item {
-    margin-bottom: 30px;
-    border-left: 2px solid var(--accent);
-    padding-left: 20px;
-}
-
-.qual-year {
-    font-weight: 800;
-    color: var(--accent);
-    display: block;
-    font-size: 0.9rem;
-}
-
-.qual-item h4 {
-    margin: 5px 0;
-    font-size: 1.2rem;
-}
-
-.qual-item p {
-    opacity: 0.7;
-    font-size: 0.9rem;
-}
-
-.story-content p {
-    margin-bottom: 20px;
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: rgba(255, 255, 255, 0.9);
-}
-
-/* MOBILE RESPONSIVENESS */
-@media (max-width: 992px) {
-    .journey-container {
-        grid-template-columns: 1fr;
-    }
-}
-/* HERO QUOTE SECTION */
+/* 4. PRO QUOTE SECTION (Centerpiece) */
 .hero-quote-section {
     padding: 120px 10%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex; justify-content: center; align-items: center;
     background: radial-gradient(circle at center, rgba(0, 247, 255, 0.05) 0%, transparent 70%);
 }
 
 .quote-container {
-    max-width: 1000px;
-    text-align: center;
-    position: relative;
-    padding: 60px;
-    background: var(--glass);
-    border: 1px solid var(--border);
-    backdrop-filter: blur(15px);
-    border-radius: 40px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    max-width: 1000px; text-align: center; position: relative;
+    padding: 80px 60px; background: var(--glass);
+    border: 1px solid var(--border); backdrop-filter: blur(15px);
+    border-radius: 40px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
 }
 
 .quote-icon {
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 8rem;
-    font-family: serif;
-    color: var(--accent);
-    opacity: 0.2;
-    line-height: 1;
+    position: absolute; top: -20px; left: 50%; transform: translateX(-50%);
+    font-size: 8rem; font-family: 'Georgia', serif;
+    color: var(--accent); opacity: 0.2; line-height: 1;
 }
 
 .pro-quote {
-    font-size: 2.8rem; /* Enlarged size */
-    font-weight: 800;
-    line-height: 1.3;
-    margin-bottom: 30px;
-    letter-spacing: -1px;
-    color: #ffffff;
+    font-size: 2.8rem; font-weight: 800; line-height: 1.3;
+    margin-bottom: 30px; letter-spacing: -1px; color: #ffffff;
 }
 
-/* GRADIENT & GLOW EFFECTS */
 .text-gradient {
-    background: linear-gradient(90deg, var(--accent), #7000ff);
+    background: var(--quote-grad);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -235,23 +105,51 @@ nav {
 }
 
 .quote-author {
-    display: block;
-    font-size: 1.2rem;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.6);
-    margin-top: 20px;
+    display: block; font-size: 1.2rem; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6); margin-top: 20px;
 }
 
-/* ANIMATIONS */
 @keyframes pulse-glow {
     0%, 100% { opacity: 1; text-shadow: 0 0 15px rgba(0, 247, 255, 0.6); }
     50% { opacity: 0.8; text-shadow: 0 0 5px rgba(0, 247, 255, 0.2); }
 }
 
-/* MOBILE RESPONSIVE */
+/* 5. JOURNEY & QUALIFICATIONS */
+.journey-container {
+    display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px; padding: 100px 8%;
+}
+
+.qual-item {
+    margin-bottom: 30px; border-left: 2px solid var(--accent); padding-left: 20px;
+}
+
+.qual-year { font-weight: 800; color: var(--accent); display: block; font-size: 0.9rem; }
+.qual-item h4 { margin: 5px 0; font-size: 1.2rem; }
+.qual-item p { opacity: 0.7; font-size: 0.9rem; }
+
+.story-content p { margin-bottom: 20px; font-size: 1.1rem; line-height: 1.8; color: rgba(255, 255, 255, 0.9); }
+
+/* 6. FOOTER */
+.site-footer {
+    background: var(--footer-grad); color: #e0e0e0;
+    padding: 80px 10% 20px; border-top: 1px solid var(--border);
+}
+
+.footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; padding-bottom: 50px; }
+.footer-content h3 { color: var(--accent); margin-bottom: 20px; font-size: 1.2rem; }
+.footer-contact a, .footer-links a { color: #ffffff; text-decoration: none; display: block; margin-bottom: 10px; transition: 0.3s; opacity: 0.8; }
+.footer-contact a:hover, .footer-links a:hover { color: var(--accent); opacity: 1; transform: translateX(5px); }
+
+/* 7. GLOBAL RESPONSIVENESS */
+@media (max-width: 992px) {
+    .journey-container { grid-template-columns: 1fr; }
+    .pro-quote { font-size: 2.2rem; }
+}
+
 @media (max-width: 768px) {
+    .nav-links { display: none; }
     .pro-quote { font-size: 1.8rem; }
     .quote-container { padding: 40px 20px; }
+    .site-footer { text-align: center; }
 }
