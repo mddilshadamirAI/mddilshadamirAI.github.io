@@ -141,6 +141,52 @@ nav {
 .footer-contact a, .footer-links a { color: #ffffff; text-decoration: none; display: block; margin-bottom: 10px; transition: 0.3s; opacity: 0.8; }
 .footer-contact a:hover, .footer-links a:hover { color: var(--accent); opacity: 1; transform: translateX(5px); }
 
+/* INNOVATIVE WORKS CARD STYLING */
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.work-card {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    padding: 40px;
+    border-radius: 25px;
+    backdrop-filter: blur(15px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.work-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 247, 255, 0.15);
+}
+
+.work-card h3 {
+    color: var(--accent);
+    font-size: 1.5rem;
+    margin: 15px 0;
+}
+
+.explore-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    border-bottom: 1px solid transparent;
+    transition: 0.3s;
+}
+
+.explore-link:hover {
+    border-bottom-color: var(--accent);
+    padding-left: 5px;
+}
+
 /* 7. GLOBAL RESPONSIVENESS */
 @media (max-width: 992px) {
     .journey-container { grid-template-columns: 1fr; }
