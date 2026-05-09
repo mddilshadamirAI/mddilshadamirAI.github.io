@@ -153,3 +153,42 @@ nav {
     .quote-container { padding: 40px 20px; }
     .site-footer { text-align: center; }
 }
+/* FINAL MOBILE POLISH (Add to bottom) */
+@media (max-width: 600px) {
+    /* 1. Fix the Journey & Roadmap Layout */
+    .journey-container, 
+    .card-container,
+    .footer-content {
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 40px 5% !important;
+        gap: 30px !important;
+    }
+
+    /* 2. Adjust the Pro Quote for small screens */
+    .pro-quote {
+        font-size: 1.5rem !important; /* Prevents text from being too big */
+        line-height: 1.4 !important;
+    }
+
+    .quote-container {
+        padding: 40px 20px !important;
+        margin: 0 10px !important;
+    }
+
+    /* 3. Scale the Banner Wrapper */
+    .banner-wrapper {
+        width: 100% !important;
+        transform: none !important; /* Disables 3D tilt on mobile for better touch performance */
+    }
+
+    .master-banner {
+        border-radius: 10px !important;
+    }
+
+    /* 4. Fix Section Titles */
+    .section-title {
+        font-size: 1.8rem !important;
+        text-align: center !important;
+    }
+}
