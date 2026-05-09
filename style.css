@@ -153,42 +153,75 @@ nav {
     .quote-container { padding: 40px 20px; }
     .site-footer { text-align: center; }
 }
-/* FINAL MOBILE POLISH (Add to bottom) */
-@media (max-width: 600px) {
-    /* 1. Fix the Journey & Roadmap Layout */
+/* 7. REFINED RESPONSIVENESS (Safe for Chromebook & Mobile) */
+
+/* Desktop & Chromebook (Wide Screens) */
+@media (min-width: 1025px) {
+    .journey-container {
+        display: grid !important;
+        grid-template-columns: 1fr 1.5fr !important;
+        gap: 50px !important;
+    }
+    .card-container {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+    }
+}
+
+/* Tablet & Smaller Laptops */
+@media (max-width: 1024px) {
+    .journey-container {
+        gap: 30px;
+    }
+    .pro-quote {
+        font-size: 2.2rem;
+    }
+}
+
+/* Mobile Phones (Strictly under 768px) */
+@media (max-width: 767px) {
+    /* Reset layout to vertical stacking */
     .journey-container, 
     .card-container,
     .footer-content {
         display: flex !important;
         flex-direction: column !important;
-        padding: 40px 5% !important;
+        padding: 40px 6% !important;
         gap: 30px !important;
     }
 
-    /* 2. Adjust the Pro Quote for small screens */
+    /* Fix the Quote scaling */
     .pro-quote {
-        font-size: 1.5rem !important; /* Prevents text from being too big */
+        font-size: 1.6rem !important; 
         line-height: 1.4 !important;
+        margin-bottom: 20px !important;
     }
 
     .quote-container {
         padding: 40px 20px !important;
-        margin: 0 10px !important;
+        border-radius: 25px !important;
     }
 
-    /* 3. Scale the Banner Wrapper */
+    .quote-icon {
+        font-size: 5rem !important;
+        top: -10px !important;
+    }
+
+    /* Smooth out the Banner */
+    .banner-hero {
+        height: auto !important;
+        padding: 100px 0 40px 0 !important;
+    }
+
     .banner-wrapper {
-        width: 100% !important;
-        transform: none !important; /* Disables 3D tilt on mobile for better touch performance */
+        width: 95% !important;
+        transform: none !important; /* Disable 3D tilt for mobile performance */
     }
 
-    .master-banner {
-        border-radius: 10px !important;
-    }
-
-    /* 4. Fix Section Titles */
-    .section-title {
-        font-size: 1.8rem !important;
-        text-align: center !important;
+    /* Ensure long story text is readable */
+    .story-content p {
+        font-size: 1rem !important;
+        text-align: left;
     }
 }
