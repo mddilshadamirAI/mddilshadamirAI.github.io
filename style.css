@@ -271,3 +271,40 @@ nav {
         text-align: left;
     }
 }
+/* TECHNICAL ARSENAL STYLING */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.skill-item {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.skill-item span {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--accent);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background: var(--quote-grad); /* Uses your blue-purple gradient */
+    box-shadow: 0 0 10px var(--accent);
+}
