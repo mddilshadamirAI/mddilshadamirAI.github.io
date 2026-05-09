@@ -1,14 +1,24 @@
+/* 
+    ========================================
+    MASTER BRANDING: mddilshadamirAI
+    THEME: Agentic AI Founder (Dark / Cyan)
+    ========================================
+*/
+
 /* 1. CORE VARIABLES & RESET */
 :root {
     --bg: #030303;
     --accent: #00f7ff;
+    --accent-rgb: 0, 247, 255;
+    --purple: #7000ff;
     --glass: rgba(255, 255, 255, 0.03);
+    --glass-card: rgba(255, 255, 255, 0.05);
     --border: rgba(255, 255, 255, 0.1);
-    --footer-grad: linear-gradient(135deg, #3d3d4d 0%, #4a443d 100%);
+    --footer-grad: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     --quote-grad: linear-gradient(90deg, #00f7ff, #7000ff);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
 body { 
     background-color: var(--bg); 
@@ -21,350 +31,182 @@ body {
 /* 2. BACKGROUND & NAVIGATION */
 #hero-canvas {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+    opacity: 0.6;
 }
 
 nav {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 20px 8%; position: fixed; width: 100%; z-index: 1000;
-    backdrop-filter: blur(15px); border-bottom: 1px solid var(--border);
+    padding: 15px 8%; position: fixed; width: 100%; z-index: 1000;
+    backdrop-filter: blur(20px); border-bottom: 1px solid var(--border);
+    background: rgba(3, 3, 3, 0.7);
 }
 
-.logo-container { display: flex; align-items: center; }
+.logo-container { display: flex; align-items: center; gap: 12px; }
 .main-logo {
-    height: 40px; width: auto; border-radius: 8px;
-    box-shadow: 0 0 15px var(--accent); transition: transform 0.3s ease;
+    height: 35px; width: auto; border-radius: 6px;
+    box-shadow: 0 0 15px var(--accent);
 }
-.main-logo:hover { transform: scale(1.1); }
+.logo-text { font-weight: 800; letter-spacing: 1px; font-size: 1rem; color: #fff; }
 
-.nav-links { display: flex; list-style: none; gap: 25px; }
-.nav-links a { color: white; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+.nav-links { display: flex; list-style: none; gap: 30px; }
+.nav-links a { 
+    color: rgba(255, 255, 255, 0.7); 
+    text-decoration: none; 
+    font-size: 0.85rem; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s; 
+}
 .nav-links a:hover { color: var(--accent); text-shadow: 0 0 10px var(--accent); }
 
-/* 3. HERO BANNER SECTION */
+/* 3. HERO BANNER */
 .banner-hero {
-    height: 100vh; width: 100%; display: flex;
+    min-height: 100vh; width: 100%; display: flex;
     align-items: center; justify-content: center;
-    background: var(--bg); position: relative; padding-top: 80px;
+    padding-top: 100px; padding-bottom: 50px;
 }
 
 .banner-wrapper {
-    position: relative; width: 90%; max-width: 1600px;
-    transform: perspective(1000px) rotateX(0deg);
-    transition: 0.5s ease; border-radius: 20px;
-    box-shadow: 0 0 50px rgba(0, 247, 255, 0.2);
+    position: relative; width: 90%; max-width: 1400px;
+    transform-style: preserve-3d;
+    transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    border-radius: 25px;
+    box-shadow: 0 0 60px rgba(0, 247, 255, 0.1);
 }
 
 .banner-wrapper:hover {
-    transform: perspective(1000px) rotateX(2deg) translateY(-10px);
-    box-shadow: 0 10px 60px rgba(0, 247, 255, 0.4);
+    transform: perspective(1000px) rotateX(1deg) translateY(-5px);
+    box-shadow: 0 20px 80px rgba(0, 247, 255, 0.2);
 }
 
-.master-banner { width: 100%; height: auto; border-radius: 20px; display: block; }
+.master-banner { width: 100%; height: auto; border-radius: 25px; display: block; border: 1px solid var(--border); }
 
-.banner-overlay {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: repeating-linear-gradient(0deg, rgba(0,0,0,0.1) 0px, rgba(0,0,0,0.1) 1px, transparent 1px, transparent 2px);
-    pointer-events: none; opacity: 0.3;
+/* 4. SECTIONS & TITLES */
+.glass-wrap { padding: 100px 8%; position: relative; }
+
+.section-title {
+    font-size: 2.8rem; font-weight: 800; margin-bottom: 15px;
+    letter-spacing: -1px; background: linear-gradient(to bottom, #fff, #888);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 
-/* 4. PRO QUOTE SECTION (Centerpiece) */
-.hero-quote-section {
-    padding: 120px 10%;
-    display: flex; justify-content: center; align-items: center;
-    background: radial-gradient(circle at center, rgba(0, 247, 255, 0.05) 0%, transparent 70%);
-}
+.center-title { text-align: center; margin-bottom: 60px; font-size: 2.8rem; font-weight: 800; }
 
+/* 5. QUOTE SECTION */
+.hero-quote-section { padding: 120px 10%; display: flex; justify-content: center; }
 .quote-container {
-    max-width: 1000px; text-align: center; position: relative;
+    max-width: 1100px; text-align: center; position: relative;
     padding: 80px 60px; background: var(--glass);
-    border: 1px solid var(--border); backdrop-filter: blur(15px);
-    border-radius: 40px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border); backdrop-filter: blur(20px);
+    border-radius: 40px; box-shadow: 0 30px 60px rgba(0,0,0,0.5);
 }
-
 .quote-icon {
-    position: absolute; top: -20px; left: 50%; transform: translateX(-50%);
-    font-size: 8rem; font-family: 'Georgia', serif;
-    color: var(--accent); opacity: 0.2; line-height: 1;
+    position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+    font-size: 8rem; color: var(--accent); opacity: 0.1;
 }
+.pro-quote { font-size: 3rem; font-weight: 800; line-height: 1.2; margin-bottom: 30px; }
+.text-gradient { background: var(--quote-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.glow-text { color: var(--accent); text-shadow: 0 0 20px rgba(0, 247, 255, 0.5); }
 
-.pro-quote {
-    font-size: 2.8rem; font-weight: 800; line-height: 1.3;
-    margin-bottom: 30px; letter-spacing: -1px; color: #ffffff;
+/* 6. INNOVATIVE WORKS (THE LAB) */
+.card-container {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px; margin-top: 20px;
 }
-
-.text-gradient {
-    background: var(--quote-grad);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.glass-card {
+    background: var(--glass-card); border: 1px solid var(--border);
+    padding: 40px; border-radius: 25px; backdrop-filter: blur(15px);
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-
-.glow-text {
-    color: var(--accent);
-    text-shadow: 0 0 15px rgba(0, 247, 255, 0.6);
-    animation: pulse-glow 3s infinite ease-in-out;
+.glass-card:hover { 
+    border-color: var(--accent); transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 247, 255, 0.15);
 }
-
-.quote-author {
-    display: block; font-size: 1.2rem; font-weight: 700;
-    letter-spacing: 3px; text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.6); margin-top: 20px;
+.card-icon { font-size: 2.5rem; margin-bottom: 20px; }
+.glass-card h3 { color: var(--accent); margin-bottom: 15px; font-size: 1.5rem; }
+.btn-sm {
+    display: inline-block; margin-top: 25px; color: var(--accent);
+    text-decoration: none; font-weight: 700; font-size: 0.9rem;
+    padding: 8px 0; border-bottom: 2px solid transparent; transition: 0.3s;
 }
+.btn-sm:hover { border-bottom-color: var(--accent); letter-spacing: 1px; }
 
-@keyframes pulse-glow {
-    0%, 100% { opacity: 1; text-shadow: 0 0 15px rgba(0, 247, 255, 0.6); }
-    50% { opacity: 0.8; text-shadow: 0 0 5px rgba(0, 247, 255, 0.2); }
+/* 7. TECHNICAL ARSENAL (SKILLS) */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.skill-item { background: var(--glass); border: 1px solid var(--border); padding: 25px; border-radius: 20px; }
+.skill-item span { display: block; margin-bottom: 15px; font-weight: 700; font-size: 0.95rem; color: var(--accent); }
+.progress-bar { width: 100%; height: 6px; background: rgba(255,255,255,0.05); border-radius: 10px; overflow: hidden; }
+.progress { height: 100%; background: var(--quote-grad); box-shadow: 0 0 15px var(--accent); }
+
+/* 8. 180-DAY ROADMAP (TIMELINE) */
+.timeline { position: relative; max-width: 900px; margin: 0 auto; padding-left: 40px; border-left: 1px solid var(--border); }
+.timeline-event { position: relative; margin-bottom: 60px; }
+.timeline-event::before {
+    content: ''; position: absolute; left: -49px; top: 8px;
+    width: 16px; height: 16px; background: var(--bg);
+    border: 2px solid var(--accent); border-radius: 50%; box-shadow: 0 0 15px var(--accent);
 }
+.event-date { color: var(--accent); font-weight: 800; font-size: 0.8rem; margin-bottom: 10px; display: block; letter-spacing: 2px; }
 
-/* 5. JOURNEY & QUALIFICATIONS */
-.journey-container {
-    display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px; padding: 100px 8%;
+/* 9. JOURNEY & QUALIFICATIONS (GRID FIX) */
+.journey-container { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; }
+.qual-item { margin-bottom: 35px; border-left: 2px solid var(--accent); padding-left: 25px; }
+.qual-year { font-weight: 800; color: var(--accent); display: block; font-size: 0.85rem; margin-bottom: 5px; }
+.story-content p { margin-bottom: 25px; font-size: 1.15rem; color: rgba(255,255,255,0.8); line-height: 1.8; }
+
+/* 10. CONTACT & FOOTER */
+.contact-card {
+    background: var(--glass); border: 1px solid var(--border);
+    padding: 60px; border-radius: 35px; text-align: center;
+    backdrop-filter: blur(20px);
 }
-
-.qual-item {
-    margin-bottom: 30px; border-left: 2px solid var(--accent); padding-left: 20px;
+.social-btn {
+    display: inline-block; padding: 12px 30px; margin: 10px;
+    border: 1px solid var(--accent); border-radius: 50px;
+    color: white; text-decoration: none; font-weight: 700; transition: 0.3s;
 }
+.social-btn:hover { background: var(--accent); color: var(--bg); box-shadow: 0 0 20px var(--accent); }
 
-.qual-year { font-weight: 800; color: var(--accent); display: block; font-size: 0.9rem; }
-.qual-item h4 { margin: 5px 0; font-size: 1.2rem; }
-.qual-item p { opacity: 0.7; font-size: 0.9rem; }
+.site-footer { background: var(--bg); border-top: 1px solid var(--border); padding: 80px 8% 40px; }
+.footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 50px; }
+.footer-content h3 { color: var(--accent); font-size: 1.3rem; margin-bottom: 25px; }
+.footer-bottom { text-align: center; padding-top: 60px; opacity: 0.4; font-size: 0.8rem; }
 
-.story-content p { margin-bottom: 20px; font-size: 1.1rem; line-height: 1.8; color: rgba(255, 255, 255, 0.9); }
+/* 11. SUPREME RESPONSIVENESS (MOBILE & TABLET) */
 
-/* 6. FOOTER */
-.site-footer {
-    background: var(--footer-grad); color: #e0e0e0;
-    padding: 80px 10% 20px; border-top: 1px solid var(--border);
-}
-
-.footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; padding-bottom: 50px; }
-.footer-content h3 { color: var(--accent); margin-bottom: 20px; font-size: 1.2rem; }
-.footer-contact a, .footer-links a { color: #ffffff; text-decoration: none; display: block; margin-bottom: 10px; transition: 0.3s; opacity: 0.8; }
-.footer-contact a:hover, .footer-links a:hover { color: var(--accent); opacity: 1; transform: translateX(5px); }
-
-/* INNOVATIVE WORKS CARD STYLING */
-.works-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.work-card {
-    background: var(--glass);
-    border: 1px solid var(--border);
-    padding: 40px;
-    border-radius: 25px;
-    backdrop-filter: blur(15px);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.work-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 247, 255, 0.15);
-}
-
-.work-card h3 {
-    color: var(--accent);
-    font-size: 1.5rem;
-    margin: 15px 0;
-}
-
-.explore-link {
-    display: inline-block;
-    margin-top: 20px;
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    border-bottom: 1px solid transparent;
-    transition: 0.3s;
-}
-
-.explore-link:hover {
-    border-bottom-color: var(--accent);
-    padding-left: 5px;
-}
-
-/* 7. GLOBAL RESPONSIVENESS */
-@media (max-width: 992px) {
+/* Large Tablets */
+@media (max-width: 1024px) {
     .journey-container { grid-template-columns: 1fr; }
     .pro-quote { font-size: 2.2rem; }
 }
 
+/* Mobile Phones */
 @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .pro-quote { font-size: 1.8rem; }
-    .quote-container { padding: 40px 20px; }
-    .site-footer { text-align: center; }
-}
-/* 7. REFINED RESPONSIVENESS (Safe for Chromebook & Mobile) */
-
-/* Desktop & Chromebook (Wide Screens) */
-@media (min-width: 1025px) {
-    .journey-container {
-        display: grid !important;
-        grid-template-columns: 1fr 1.5fr !important;
-        gap: 50px !important;
-    }
-    .card-container {
-        display: flex !important;
-        flex-direction: row !important;
-        justify-content: center !important;
-    }
-}
-
-/* Tablet & Smaller Laptops */
-@media (max-width: 1024px) {
-    .journey-container {
+    nav { padding: 15px 5%; }
+    .nav-links { display: none; } /* Standard for mobile, unless you want a burger menu */
+    
+    .glass-wrap { padding: 60px 6%; }
+    .section-title, .center-title { font-size: 2rem; text-align: center; }
+    
+    .banner-hero { padding-top: 120px; }
+    .banner-wrapper { width: 95%; transform: none !important; }
+    
+    .quote-container { padding: 50px 30px; border-radius: 30px; }
+    .pro-quote { font-size: 1.6rem; }
+    .quote-icon { font-size: 5rem; top: 0; }
+    
+    /* Force Vertical Stacking on Mobile */
+    .card-container, .skills-grid, .footer-content {
+        grid-template-columns: 1fr !important;
         gap: 30px;
     }
-    .pro-quote {
-        font-size: 2.2rem;
-    }
-}
-/* TECHNICAL ARSENAL STYLING */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    margin-top: 30px;
-}
-
-.skill-item {
-    background: var(--glass);
-    border: 1px solid var(--border);
-    padding: 20px;
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-}
-
-.skill-item span {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: 700;
-    font-size: 0.9rem;
-    color: var(--accent);
-}
-
-.progress-bar {
-    width: 100%;
-    height: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.progress {
-    height: 100%;
-    background: var(--quote-grad); /* Uses your blue-purple gradient */
-    box-shadow: 0 0 10px var(--accent);
-}
-/* ROADMAP TIMELINE STYLING */
-.timeline {
-    position: relative;
-    max-width: 800px;
-    margin: 40px auto;
-    padding-left: 30px;
-    border-left: 2px solid var(--border);
-}
-
-.timeline-event {
-    position: relative;
-    margin-bottom: 50px;
-}
-
-.timeline-event::before {
-    content: '';
-    position: absolute;
-    left: -39px;
-    top: 5px;
-    width: 16px;
-    height: 16px;
-    background: var(--bg);
-    border: 2px solid var(--accent);
-    border-radius: 50%;
-    box-shadow: 0 0 10px var(--accent);
-}
-
-.event-date {
-    font-weight: 800;
-    color: var(--accent);
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    display: block;
-}
-
-.event-content {
-    background: var(--glass);
-    border: 1px solid var(--border);
-    padding: 25px;
-    border-radius: 20px;
-    backdrop-filter: blur(15px);
-}
-
-.event-content h3 {
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-}
-/* SECTION WRAPPERS */
-.glass-wrap {
-    padding: 100px 8%;
-    position: relative;
-}
-
-.center-title {
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin-bottom: 40px;
-}
-
-/* Mobile Phones (Strictly under 768px) */
-@media (max-width: 767px) {
-    /* Reset layout to vertical stacking */
-    .journey-container, 
-    .card-container,
-    .footer-content {
-        display: flex !important;
-        flex-direction: column !important;
-        padding: 40px 6% !important;
-        gap: 30px !important;
-    }
-
-    /* Fix the Quote scaling */
-    .pro-quote {
-        font-size: 1.6rem !important; 
-        line-height: 1.4 !important;
-        margin-bottom: 20px !important;
-    }
-
-    .quote-container {
-        padding: 40px 20px !important;
-        border-radius: 25px !important;
-    }
-
-    .quote-icon {
-        font-size: 5rem !important;
-        top: -10px !important;
-    }
-
-    /* Smooth out the Banner */
-    .banner-hero {
-        height: auto !important;
-        padding: 100px 0 40px 0 !important;
-    }
-
-    .banner-wrapper {
-        width: 95% !important;
-        transform: none !important; /* Disable 3D tilt for mobile performance */
-    }
-
-    /* Ensure long story text is readable */
-    .story-content p {
-        font-size: 1rem !important;
-        text-align: left;
-    }
+    
+    .glass-card, .skill-item, .contact-card { padding: 30px 25px; }
+    
+    .timeline { padding-left: 25px; }
+    .timeline-event::before { left: -34px; }
+    
+    .story-content p { font-size: 1.05rem; text-align: left; }
+    
+    .site-footer { text-align: center; padding: 60px 6% 30px; }
 }
