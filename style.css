@@ -210,3 +210,25 @@ nav {
     
     .site-footer { text-align: center; padding: 60px 6% 30px; }
 }
+  .work-card {
+    /* The core Glassmorphism properties */
+    background: rgba(255, 255, 255, 0.05); /* Very light white transparency */
+    backdrop-filter: blur(12px);           /* The "frosted" blur effect */
+    -webkit-backdrop-filter: blur(12px);    /* Support for Chrome/Safari */
+    
+    /* Border and Shadow for depth */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    
+    /* Smooth transition for your AOS animations */
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.work-card:hover {
+    /* Hover effect to make it feel interactive */
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
