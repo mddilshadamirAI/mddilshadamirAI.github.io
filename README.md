@@ -1,4 +1,4 @@
-## MD DILSHAD AMIR | AI ENGINEER 
+## MD DILSHAD AMIR | SOFTWARE/AI ENGINEER 
 I am an AI Engineer based in Makhdumpur, Bihar, India.
 Welcome to the central hub of my digital presence. 
 This repository hosts my professional portfolio, built to showcase my transition from a student to a full-stack developer and future SaaS founder.
