@@ -1,46 +1,57 @@
+<div align="center">
+
 # MD DILSHAD AMIR
-## AI Engineer & Full-Stack Developer
+### AI Engineer | Full-Stack Developer | SaaS Founder in Training
+
+[**GitHub**](https://github.com/mddilshadamirAI) • [**Portfolio**](https://mddilshadamirai.github.io/) • [**Email**](mailto:mddilshadamir@gmail.com)
 
 ---
 
-### 🚀 About Me
-I am an AI Engineer based in Makhdumpur, Bihar, India, currently immersed in a **180-day intensive engineering sprint**. My professional philosophy centers on high-intensity learning, the power of self-hosting, and the development of **utility-first applications**.
+### 🌐 PROFESSIONAL PROFILE
+I am an AI Engineer based in Makhdumpur, India, currently driving a **180-day intensive engineering sprint**. My professional focus lies at the intersection of high-intensity learning, self-hosted infrastructure, and the development of utility-first applications. 
 
-My journey is defined by a relentless drive to bridge the gap between complex AI research and practical, scalable software solutions. As I transition from a student of technology to a full-stack developer and aspiring SaaS founder, this repository serves as the central hub for my projects, experiments, and professional growth.
+As I transition from academic foundations to professional-grade full-stack development, I am dedicated to bridging the gap between complex AI research and scalable, real-world software solutions. This repository acts as the central architectural hub for my ongoing projects, experiments, and technical evolution.
 
 ---
 
-### 🛠️ Technical Expertise
-
-My stack is built for speed, agility, and performance. I prioritize tools that allow for rapid prototyping and robust deployment.
+### 🛠️ TECHNICAL ARSENAL
 
 | Category | Technologies |
 | :--- | :--- |
-| **Languages** | Python, JavaScript, HTML5, CSS3, SQL |
-| **Frameworks** | Streamlit |
-| **DevOps** | Git, GitHub |
+| **Languages** | Python, JavaScript (ES6+), SQL |
+| **Frontend & UI** | HTML5, CSS3, Streamlit |
+| **Infrastructure** | Git/GitHub, Self-Hosting, Docker |
 | **Deployment** | GitHub Pages, Streamlit Cloud |
 
 ---
 
-### 💡 Core Focus Areas
-* **AI Integration:** Building intelligent workflows using Python.
-* **Full-Stack Development:** Crafting responsive, data-driven web applications.
-* **SaaS Architecture:** Designing scalable solutions from concept to deployment.
-* **Self-Hosting:** Advocating for infrastructure independence and control.
+### 💡 CORE COMPETENCIES
+
+* **AI Integration:** Developing intelligent workflows and autonomous agents using modern Python frameworks.
+* **Full-Stack Development:** Architecting responsive, data-driven web applications with a focus on seamless user experience.
+* **SaaS Architecture:** Designing modular, scalable solutions from initial concept to production deployment.
+* **Infrastructure Sovereignty:** Advocating for self-hosted solutions to ensure data control and system independence.
 
 ---
 
-### 📈 The 180-Day Sprint
-I am currently pushing the boundaries of my technical capabilities through a structured, high-intensity development cycle. During this period, I am focusing on:
-1.  **Shipping Daily:** Improving code quality and velocity through continuous delivery.
-2.  **Portfolio Building:** Developing a suite of SaaS-ready tools.
-3.  **Community Engagement:** Sharing insights regarding my transition into the AI engineering space.
+### 📈 THE 180-DAY SPRINT (2026 ROADMAP)
+I am currently navigating a structured, high-intensity development cycle designed to maximize technical velocity and output quality. My objectives during this period include:
+
+1. **Velocity & Quality:** Implementing daily shipping cycles to refine code quality and deployment speed.
+2. **Product Prototyping:** Engineering a suite of SaaS-ready tools designed to solve specific administrative and technical frictions.
+3. **Knowledge Exchange:** Documenting my transition into AI engineering to contribute back to the developer community.
 
 ---
 
-### 📬 Connect With Me
-* **GitHub:** https://github.com/mddilshadamirAI
-* **Location:** Makhdumpur, Bihar, India
+> *“Code is more than mere syntax; it is the deliberate manifestation of logic applied to human needs. I build to solve, to scale, and to sustain.”*
 
-> *“Code is more than syntax; it is the manifestation of logic applied to human needs.”*
+---
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Language-Python-blue?style=flat-square&logo=python" alt="Python">
+  <img src="https://img.shields.io/badge/Status-Building-brightgreen?style=flat-square" alt="Status">
+</p>
+
+© 2026 MD DILSHAD AMIR | *Engineered for Scale.*
+
+</div>
