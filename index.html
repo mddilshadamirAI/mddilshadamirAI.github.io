@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080808">
 <meta name="description" content="Md Dilshad Amir — AI Engineer building practical AI applications, intelligent automation and software products.">
-<title>Md Dilshad Amir | AI Engineer & Software Engineer</title>
+<title>Md Dilshad Amir | AI Engineer</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,12 +41,18 @@ body {
 }
 
 a {
-    text-decoration: none;
     color: inherit;
+    text-decoration: none;
 }
 
 button {
     font: inherit;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 4px;
 }
 
 ::selection {
@@ -77,7 +83,7 @@ button {
     opacity: .15;
     background-image:
         linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+        linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
     background-size: 48px 48px;
 }
 
@@ -92,8 +98,6 @@ button {
     position: relative;
     z-index: 2;
 }
-
-/* SCROLL PROGRESS */
 
 .progress-bar {
     position: fixed;
@@ -112,7 +116,7 @@ button {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(8,8,8,.88);
+    background: rgba(8,8,8,.9);
     backdrop-filter: blur(18px);
     border-bottom: 1px solid var(--border);
 }
@@ -128,7 +132,7 @@ button {
 }
 
 .logo {
-    font-size: 19px;
+    font-size: 20px;
     font-weight: 700;
     letter-spacing: -1px;
 }
@@ -140,14 +144,13 @@ button {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 28px;
+    gap: 27px;
     list-style: none;
 }
 
 .nav-links a {
     color: #aaa;
-    font-family: var(--mono);
-    font-size: 10px;
+    font: 10px var(--mono);
     transition: .25s;
 }
 
@@ -161,8 +164,7 @@ button {
     align-items: center;
     gap: 10px;
     color: #aaa;
-    font-family: var(--mono);
-    font-size: 10px;
+    font: 10px var(--mono);
 }
 
 .online-dot {
@@ -173,28 +175,249 @@ button {
     box-shadow: 0 0 10px #36e68b;
 }
 
-/* BANNER — FIXED HEIGHT, NO RESIZE LOOP */
-
-.banner-section {
-    width: 100%;
-    overflow: hidden;
-    background: #080808;
-    border-bottom: 1px solid var(--border);
+.menu-button {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: white;
+    padding: 9px 12px;
+    cursor: pointer;
+    font: 10px var(--mono);
 }
 
-.banner-frame {
-    display: block;
-    width: 100%;
-    height: 950px;
-    border: 0;
-    background: #080808;
+/* HERO */
+
+.hero-section {
+    min-height: min(760px, calc(100vh - 76px));
+    position: relative;
+    display: flex;
+    align-items: center;
     overflow: hidden;
+    border-bottom: 1px solid var(--border);
+    background:
+        radial-gradient(ellipse at 78% 48%,rgba(255,52,52,.12),transparent 38%),
+        radial-gradient(ellipse at 10% 10%,rgba(255,255,255,.035),transparent 35%),
+        #080808;
+}
+
+.hero-inner {
+    min-height: 650px;
+    display: grid;
+    grid-template-columns: 1.08fr .92fr;
+    align-items: center;
+    gap: 55px;
+    padding-top: 65px;
+    padding-bottom: 65px;
+}
+
+.hero-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,.025);
+    color: #c7c7c7;
+    padding: 10px 13px;
+    font: 10px var(--mono);
+    letter-spacing: 1px;
+    margin-bottom: 28px;
+}
+
+.hero-eyebrow {
+    color: var(--red);
+    font: 10px var(--mono);
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+.hero-copy h1 {
+    font-size: clamp(48px, 7vw, 88px);
+    line-height: .99;
+    letter-spacing: -5px;
+    font-weight: 700;
+    margin-bottom: 26px;
+}
+
+.hero-description {
+    max-width: 570px;
+    color: #aaa;
+    font-size: 15px;
+    line-height: 1.95;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.hero-primary,
+.hero-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 22px;
+    padding: 15px 19px;
+    font: 10px var(--mono);
+    letter-spacing: .6px;
+    transition: .25s ease;
+}
+
+.hero-primary {
+    background: var(--red);
+    border: 1px solid var(--red);
+    color: white;
+}
+
+.hero-primary:hover {
+    background: transparent;
+    color: var(--red);
+    transform: translateY(-3px);
+}
+
+.hero-secondary {
+    border: 1px solid var(--border);
+    color: #ddd;
+}
+
+.hero-secondary:hover {
+    border-color: var(--red);
+    color: var(--red);
+    transform: translateY(-3px);
+}
+
+.hero-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 13px;
+    color: #777;
+    font: 9px var(--mono);
+    letter-spacing: 1px;
+    margin-top: 48px;
+}
+
+.hero-meta i {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--red);
+}
+
+.hero-visual {
+    min-height: 440px;
+    position: relative;
+    display: grid;
+    place-items: center;
+    isolation: isolate;
+}
+
+.hero-visual::before {
+    content: "";
+    position: absolute;
+    width: min(78%, 360px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle,rgba(255,52,52,.17),rgba(255,52,52,.025) 55%,transparent 72%);
+    filter: blur(8px);
+}
+
+.hero-orbit {
+    position: absolute;
+    width: min(82%, 390px);
+    aspect-ratio: 1;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 50%;
+}
+
+.orbit-one {
+    transform: rotate(-24deg) scaleY(.72);
+}
+
+.orbit-two {
+    transform: rotate(58deg) scaleY(.72);
+    border-color: rgba(255,52,52,.32);
+}
+
+.hero-core {
+    width: 190px;
+    height: 190px;
+    border: 1px solid rgba(255,52,52,.5);
+    background: linear-gradient(145deg,#1b1b1b,#090909);
+    box-shadow: 0 0 80px rgba(255,52,52,.14),inset 0 0 35px rgba(255,52,52,.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(-8deg);
+}
+
+.core-mark {
+    font-size: 82px;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: -8px;
+}
+
+.core-mark span {
+    color: var(--red);
+}
+
+.core-caption {
+    color: #888;
+    font: 8px var(--mono);
+    letter-spacing: 2px;
+    margin-top: 13px;
+}
+
+.hero-chip {
+    position: absolute;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    background: rgba(16,16,16,.88);
+    color: #bbb;
+    font: 9px var(--mono);
+    letter-spacing: 1px;
+    box-shadow: 0 12px 35px rgba(0,0,0,.3);
+}
+
+.hero-chip b {
+    color: var(--red);
+    margin-left: 12px;
+}
+
+.chip-top {
+    top: 18%;
+    right: 0;
+}
+
+.chip-bottom {
+    bottom: 17%;
+    left: 0;
+}
+
+.hero-index {
+    position: absolute;
+    right: 0;
+    bottom: 2%;
+    color: #555;
+    font: 9px var(--mono);
+    letter-spacing: 1px;
+}
+
+.hero-bottom-line {
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    width: 90%;
+    height: 1px;
+    background: linear-gradient(90deg,transparent,rgba(255,52,52,.45),transparent);
 }
 
 /* GENERAL SECTIONS */
 
-section:not(.banner-section) {
-    padding: 105px 0;
+section {
+    padding: 100px 0;
     position: relative;
 }
 
@@ -204,8 +427,7 @@ section:not(.banner-section) {
 
 .section-label {
     color: var(--red);
-    font-family: var(--mono);
-    font-size: 11px;
+    font: 11px var(--mono);
     letter-spacing: 2px;
     margin-bottom: 17px;
 }
@@ -219,7 +441,7 @@ section:not(.banner-section) {
 }
 
 .section-title {
-    font-size: clamp(34px, 5vw, 55px);
+    font-size: clamp(34px,5vw,55px);
     line-height: 1.08;
     letter-spacing: -2.5px;
     margin-bottom: 20px;
@@ -232,7 +454,7 @@ section:not(.banner-section) {
     line-height: 1.9;
 }
 
-/* INTRO */
+/* INTRO STRIP */
 
 .intro-strip {
     padding: 25px 0;
@@ -251,8 +473,7 @@ section:not(.banner-section) {
 
 .intro-inner p {
     color: #aaa;
-    font-family: var(--mono);
-    font-size: 10px;
+    font: 10px var(--mono);
     letter-spacing: 1px;
 }
 
@@ -261,7 +482,7 @@ section:not(.banner-section) {
     font-weight: 400;
 }
 
-/* STORY / ABOUT */
+/* ABOUT */
 
 .story-layout {
     display: grid;
@@ -285,7 +506,7 @@ section:not(.banner-section) {
 .story-highlight {
     border-left: 2px solid var(--red);
     padding: 18px 22px;
-    background: linear-gradient(90deg, var(--red-soft), transparent);
+    background: linear-gradient(90deg,var(--red-soft),transparent);
     color: #ddd;
     line-height: 1.8;
     margin-top: 30px;
@@ -294,7 +515,7 @@ section:not(.banner-section) {
 .profile-panel {
     padding: 30px;
     border: 1px solid var(--border);
-    background: linear-gradient(145deg, #151515, #0c0c0c);
+    background: linear-gradient(145deg,#151515,#0c0c0c);
     position: relative;
 }
 
@@ -320,9 +541,8 @@ section:not(.banner-section) {
 }
 
 .profile-top span {
-    font-family: var(--mono);
+    font: 10px var(--mono);
     color: var(--red);
-    font-size: 10px;
 }
 
 .profile-row {
@@ -342,7 +562,7 @@ section:not(.banner-section) {
     text-align: right;
 }
 
-/* JOURNEY TIMELINE */
+/* TIMELINE */
 
 .timeline {
     position: relative;
@@ -357,7 +577,7 @@ section:not(.banner-section) {
     top: 8px;
     bottom: 10px;
     width: 1px;
-    background: linear-gradient(var(--red), rgba(255,52,52,.05));
+    background: linear-gradient(var(--red),rgba(255,52,52,.05));
 }
 
 .timeline-item {
@@ -384,8 +604,7 @@ section:not(.banner-section) {
 
 .timeline-date {
     color: var(--red);
-    font-family: var(--mono);
-    font-size: 10px;
+    font: 10px var(--mono);
     letter-spacing: 1px;
     margin-bottom: 10px;
 }
@@ -406,7 +625,7 @@ section:not(.banner-section) {
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3,1fr);
     gap: 17px;
 }
 
@@ -425,8 +644,7 @@ section:not(.banner-section) {
 
 .skill-number {
     color: var(--red);
-    font-family: var(--mono);
-    font-size: 10px;
+    font: 10px var(--mono);
     margin-bottom: 25px;
 }
 
@@ -452,15 +670,14 @@ section:not(.banner-section) {
     border: 1px solid var(--border);
     padding: 7px 10px;
     color: #bbb;
-    font-family: var(--mono);
-    font-size: 9px;
+    font: 9px var(--mono);
 }
 
 /* PROJECTS */
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2,1fr);
     gap: 20px;
 }
 
@@ -483,15 +700,14 @@ section:not(.banner-section) {
     flex-direction: column;
     justify-content: space-between;
     background:
-        radial-gradient(circle at 80% 20%, rgba(255,52,52,.18), transparent 45%),
-        linear-gradient(135deg, #171717, #0c0c0c);
+        radial-gradient(circle at 80% 20%,rgba(255,52,52,.18),transparent 45%),
+        linear-gradient(135deg,#171717,#0c0c0c);
     border-bottom: 1px solid var(--border);
 }
 
 .project-code {
     color: var(--red);
-    font-family: var(--mono);
-    font-size: 10px;
+    font: 10px var(--mono);
 }
 
 .project-symbol {
@@ -519,30 +735,29 @@ section:not(.banner-section) {
 
 .project-stack {
     color: #aaa;
-    font-family: var(--mono);
-    font-size: 9px;
+    font: 9px var(--mono);
     margin-top: 20px;
-    line-height: 1.8;
 }
 
 .project-link {
     display: inline-block;
     color: var(--red);
-    font-family: var(--mono);
-    font-size: 10px;
-    margin-top: 20px;
-    transition: .2s;
+    font: 10px var(--mono);
+    letter-spacing: .8px;
+    margin-top: 22px;
+    transition: .25s;
 }
 
 .project-link:hover {
     color: white;
+    letter-spacing: 1.5px;
 }
 
-/* PHILOSOPHY */
+/* APPROACH */
 
 .philosophy-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3,1fr);
     gap: 18px;
 }
 
@@ -550,11 +765,17 @@ section:not(.banner-section) {
     padding: 28px;
     background: #101010;
     border: 1px solid var(--border);
+    transition: .3s;
+}
+
+.philosophy-card:hover {
+    border-color: rgba(255,52,52,.4);
+    transform: translateY(-4px);
 }
 
 .philosophy-icon {
     color: var(--red);
-    font-size: 25px;
+    font-size: 27px;
     margin-bottom: 20px;
 }
 
@@ -569,18 +790,18 @@ section:not(.banner-section) {
     line-height: 1.9;
 }
 
-/* FUTURE DIRECTION */
+/* FUTURE VISION */
 
 .future-panel {
     padding: 45px;
     border: 1px solid rgba(255,52,52,.25);
     background:
-        radial-gradient(ellipse at 90% 10%, rgba(255,52,52,.1), transparent 45%),
+        radial-gradient(ellipse at 90% 10%,rgba(255,52,52,.1),transparent 45%),
         #101010;
 }
 
 .future-panel h3 {
-    font-size: 26px;
+    font-size: clamp(23px,3vw,32px);
     margin-bottom: 15px;
 }
 
@@ -603,8 +824,7 @@ section:not(.banner-section) {
     background: rgba(255,255,255,.04);
     border: 1px solid var(--border);
     padding: 10px 13px;
-    font-family: var(--mono);
-    font-size: 10px;
+    font: 10px var(--mono);
 }
 
 /* CONTACT */
@@ -614,12 +834,12 @@ section:not(.banner-section) {
     text-align: center;
     border: 1px solid var(--border);
     background:
-        radial-gradient(ellipse at center, rgba(255,52,52,.12), transparent 65%),
+        radial-gradient(ellipse at center,rgba(255,52,52,.12),transparent 65%),
         #101010;
 }
 
 .contact-panel h2 {
-    font-size: clamp(35px, 5vw, 54px);
+    font-size: clamp(35px,5vw,54px);
     line-height: 1.1;
     letter-spacing: -2px;
     margin-bottom: 20px;
@@ -639,8 +859,7 @@ section:not(.banner-section) {
     border: 1px solid var(--red);
     color: white;
     padding: 15px 24px;
-    font-family: var(--mono);
-    font-size: 10px;
+    font: 10px var(--mono);
     transition: .25s;
 }
 
@@ -659,8 +878,7 @@ section:not(.banner-section) {
 
 .social-links a {
     color: #aaa;
-    font-family: var(--mono);
-    font-size: 10px;
+    font: 10px var(--mono);
     transition: .2s;
 }
 
@@ -685,8 +903,7 @@ footer {
 
 .footer-inner p {
     color: #777;
-    font-family: var(--mono);
-    font-size: 9px;
+    font: 9px var(--mono);
 }
 
 /* REVEAL ANIMATIONS */
@@ -694,7 +911,7 @@ footer {
 .reveal {
     opacity: 0;
     transform: translateY(24px);
-    transition: opacity .7s ease, transform .7s ease;
+    transition: opacity .7s ease,transform .7s ease;
 }
 
 .reveal.visible {
@@ -702,17 +919,20 @@ footer {
     transform: translateY(0);
 }
 
-/* MOBILE */
+/* RESPONSIVE DESIGN */
 
-.menu-button {
-    display: none;
-    color: white;
-    background: transparent;
-    border: 1px solid var(--border);
-    padding: 8px 11px;
-    cursor: pointer;
-    font-family: var(--mono);
-    font-size: 11px;
+@media(max-width: 1000px) {
+    .hero-inner {
+        gap: 25px;
+    }
+
+    .hero-copy h1 {
+        letter-spacing: -3.5px;
+    }
+
+    .nav-links {
+        gap: 16px;
+    }
 }
 
 @media(max-width: 850px) {
@@ -723,7 +943,20 @@ footer {
 
     .skills-grid,
     .philosophy-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding-top: 70px;
+    }
+
+    .hero-visual {
+        min-height: 360px;
+        max-width: 520px;
+        width: 100%;
+        margin: auto;
     }
 }
 
@@ -755,29 +988,64 @@ footer {
         display: flex;
     }
 
-    .nav-links li a {
+    .nav-links a {
         display: block;
         padding: 13px 0;
         border-top: 1px solid var(--border);
     }
 
-    /* Stable banner height: no JS resizing */
-    .banner-frame {
-        height: 1000px;
+    .hero-section {
+        min-height: auto;
     }
 
-    section:not(.banner-section) {
+    .hero-inner {
+        min-height: auto;
+        padding-top: 65px;
+        padding-bottom: 40px;
+    }
+
+    .hero-copy h1 {
+        font-size: clamp(46px,13vw,66px);
+        letter-spacing: -3px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .hero-meta {
+        margin-top: 30px;
+    }
+
+    .hero-visual {
+        min-height: 300px;
+    }
+
+    .hero-core {
+        width: 150px;
+        height: 150px;
+    }
+
+    .core-mark {
+        font-size: 65px;
+    }
+
+    .hero-chip {
+        font-size: 8px;
+    }
+
+    section {
         padding: 75px 0;
+    }
+
+    .section-title {
+        letter-spacing: -1.5px;
     }
 
     .skills-grid,
     .projects-grid,
     .philosophy-grid {
         grid-template-columns: 1fr;
-    }
-
-    .section-title {
-        letter-spacing: -1.5px;
     }
 
     .future-panel {
@@ -799,6 +1067,7 @@ footer {
     *::before,
     *::after {
         scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
         transition-duration: .01ms !important;
     }
 
@@ -824,7 +1093,7 @@ footer {
 
         <a href="#home" class="logo">DILSHAD<span>.</span></a>
 
-        <button class="menu-button" id="menuButton" aria-label="Toggle navigation">
+        <button class="menu-button" id="menuButton" aria-label="Toggle navigation" aria-expanded="false">
             MENU ☰
         </button>
 
@@ -833,6 +1102,7 @@ footer {
             <li><a href="#story">MY STORY</a></li>
             <li><a href="#skills">SKILLS</a></li>
             <li><a href="#projects">PROJECTS</a></li>
+            <li><a href="#vision">VISION</a></li>
             <li><a href="#contact">CONTACT</a></li>
         </ul>
 
@@ -846,23 +1116,86 @@ footer {
 
 <main>
 
-<!-- HERO BANNER -->
-<section class="banner-section" id="home">
-    <iframe
-        class="banner-frame"
-        src="ai_engineer_cyber_banner.html"
-        title="Md Dilshad Amir — AI Engineer"
-        scrolling="no"
-        loading="eager">
-    </iframe>
+<!-- HERO -->
+<section class="hero-section" id="home">
+    <div class="container hero-inner">
+
+        <div class="hero-copy reveal">
+
+            <div class="hero-kicker">
+                <span class="online-dot"></span>
+                INDEPENDENT AI & SOFTWARE ENGINEER
+            </div>
+
+            <p class="hero-eyebrow mono">
+                BUILDING THE FUTURE, ONE PROJECT AT A TIME
+            </p>
+
+            <h1>
+                MD DILSHAD<br>
+                <span class="red">AMIR.</span>
+            </h1>
+
+            <p class="hero-description">
+                I build practical software, AI-powered applications,
+                and intelligent automation systems. My focus is turning
+                real-world problems into useful digital products,
+                with a long-term vision of building AI agents and
+                scalable SaaS solutions.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#projects" class="hero-primary">
+                    EXPLORE PROJECTS <span>↗</span>
+                </a>
+
+                <a href="#contact" class="hero-secondary">
+                    LET'S CONNECT <span>↗</span>
+                </a>
+            </div>
+
+            <div class="hero-meta mono">
+                <span>PYTHON</span>
+                <i></i>
+                <span>LLM APPLICATIONS</span>
+                <i></i>
+                <span>SOFTWARE ENGINEERING</span>
+            </div>
+
+        </div>
+
+        <div class="hero-visual reveal">
+            <div class="hero-orbit orbit-one"></div>
+            <div class="hero-orbit orbit-two"></div>
+
+            <div class="hero-core">
+                <div class="core-mark">D<span>.</span>A</div>
+                <div class="core-caption mono">AI ENGINEER</div>
+            </div>
+
+            <div class="hero-chip chip-top mono">
+                SYSTEMS <b>01</b>
+            </div>
+
+            <div class="hero-chip chip-bottom mono">
+                INTELLIGENCE <b>∞</b>
+            </div>
+
+            <div class="hero-index mono">
+                INDEPENDENT BUILDER / 2026
+            </div>
+        </div>
+
+    </div>
+
+    <div class="hero-bottom-line"></div>
 </section>
 
 <!-- INTRO STRIP -->
 <div class="intro-strip">
     <div class="container intro-inner">
-        <p><strong>AI ENGINEER</strong> / SOFTWARE ENGINEER</p>
-        <p>PYTHON · BACKEND · LLM APPLICATIONS</p>
-        <p>BUILDING <strong>REAL-WORLD SOFTWARE</strong></p>
+        <p>INDEPENDENTLY BUILDING <strong>•</strong> LEARNING <strong>•</strong> SHIPPING</p>
+        <p>FOCUSED ON <strong>AI SYSTEMS & SOFTWARE PRODUCTS</strong></p>
     </div>
 </div>
 
@@ -870,49 +1203,70 @@ footer {
 <section id="about">
     <div class="container">
 
+        <div class="section-heading reveal">
+            <p class="section-label">01 / ABOUT ME</p>
+            <div class="section-line"></div>
+
+            <h2 class="section-title">
+                The person behind<br>
+                the <span class="red">projects.</span>
+            </h2>
+
+            <p class="section-description">
+                A self-driven developer learning by building,
+                experimenting, and solving practical problems.
+            </p>
+        </div>
+
         <div class="story-layout">
 
             <div class="story-copy reveal">
-                <div class="section-label">// 01 — ABOUT ME</div>
-                <div class="section-line"></div>
-
-                <h2 class="section-title">
-                    I build software<br>
-                    with <span class="red">purpose.</span>
-                </h2>
 
                 <p>
-                    I'm <strong>Md Dilshad Amir</strong>, an aspiring
-                    AI and Software Engineer focused on building
-                    practical applications, intelligent automation,
-                    and useful digital products.
+                    I'm <strong>Md Dilshad Amir</strong>, an independent
+                    AI and software engineer focused on building useful
+                    digital products. My journey is driven by curiosity,
+                    consistency, and the belief that practical skills
+                    are built through real work.
                 </p>
 
                 <p>
-                    My work combines Python development, backend
-                    engineering, web technologies, and AI-powered
-                    applications. I enjoy turning ideas and real
-                    problems into working software.
+                    I started with <strong>Python</strong>, strengthened
+                    my foundations through Harvard's CS50P, and moved
+                    from learning concepts to building applications.
+                    Instead of waiting for the perfect moment, I began
+                    creating websites, business tools, and AI-powered apps.
                 </p>
 
                 <p>
-                    I'm currently strengthening my foundations in
-                    APIs, databases, FastAPI, LangGraph, and
-                    retrieval-augmented generation while building
-                    projects and learning through implementation.
+                    Today, I'm developing my skills across
+                    <strong>Python, Streamlit, APIs, SQL, FastAPI,
+                    and LLM application development</strong>.
+                    I'm especially interested in AI assistants that
+                    can reduce repetitive work and make everyday
+                    business operations easier.
+                </p>
+
+                <p>
+                    My long-term direction is to build reliable
+                    <strong>AI agents, automation systems, and SaaS
+                    products</strong> that solve real problems for
+                    businesses — starting small, learning from users,
+                    and improving through execution.
                 </p>
 
                 <div class="story-highlight">
-                    My goal is not just to write code. I want to
-                    understand problems, engineer useful solutions,
-                    and eventually build software products and
-                    AI-powered businesses.
+                    I don't want to build technology just to
+                    demonstrate what I know. I want to build products
+                    that people can actually use.
                 </div>
+
             </div>
 
             <div class="profile-panel reveal">
+
                 <div class="profile-top">
-                    <h3>Developer Profile</h3>
+                    <h3>Quick Profile</h3>
                     <span>PROFILE_001</span>
                 </div>
 
@@ -922,120 +1276,112 @@ footer {
                 </div>
 
                 <div class="profile-row">
-                    <span>Primary Focus</span>
-                    <span>AI Engineering</span>
+                    <span>Role</span>
+                    <span>AI & Software Engineer</span>
                 </div>
 
                 <div class="profile-row">
-                    <span>Programming</span>
-                    <span>Python, SQL</span>
+                    <span>Focus</span>
+                    <span>AI Applications & Automation</span>
                 </div>
 
                 <div class="profile-row">
-                    <span>Backend</span>
-                    <span>FastAPI, APIs</span>
+                    <span>Core Language</span>
+                    <span>Python</span>
                 </div>
 
                 <div class="profile-row">
-                    <span>Applications</span>
-                    <span>Streamlit, Web</span>
+                    <span>Education</span>
+                    <span>Self-directed Learning</span>
                 </div>
 
                 <div class="profile-row">
-                    <span>Exploring</span>
-                    <span>LangGraph, RAG</span>
+                    <span>Based in</span>
+                    <span>India</span>
                 </div>
 
                 <div class="profile-row">
-                    <span>Long-term Goal</span>
-                    <span>AI Products & SaaS</span>
+                    <span>Current Goal</span>
+                    <span>Build useful AI products</span>
                 </div>
+
             </div>
 
         </div>
     </div>
 </section>
 
-<!-- MY STORY -->
+<!-- MY JOURNEY -->
 <section id="story">
     <div class="container">
 
         <div class="section-heading reveal">
-            <div class="section-label">// 02 — THE JOURNEY</div>
+            <p class="section-label">02 / MY JOURNEY</p>
             <div class="section-line"></div>
 
             <h2 class="section-title">
-                From learning Python<br>
-                to <span class="red">building AI.</span>
+                Learning by <span class="red">building.</span>
             </h2>
 
             <p class="section-description">
-                Every project starts somewhere. This is my journey
-                of learning, experimenting, building, and moving
-                toward a bigger vision.
+                Every stage has been about moving from understanding
+                concepts to applying them in real projects.
             </p>
         </div>
 
         <div class="timeline">
 
             <div class="timeline-item reveal">
-                <span class="timeline-dot"></span>
-                <div class="timeline-date">THE BEGINNING</div>
+                <div class="timeline-dot"></div>
+                <p class="timeline-date">THE BEGINNING</p>
                 <h3>Started with Python</h3>
                 <p>
-                    I began my software development journey by
-                    learning Python and understanding the
-                    fundamentals of programming, problem-solving,
-                    and writing code.
+                    Built programming fundamentals and developed
+                    problem-solving habits through hands-on practice.
                 </p>
             </div>
 
             <div class="timeline-item reveal">
-                <span class="timeline-dot"></span>
-                <div class="timeline-date">FOUNDATIONS</div>
-                <h3>Completed Harvard CS50P</h3>
+                <div class="timeline-dot"></div>
+                <p class="timeline-date">CS50P / HARVARD</p>
+                <h3>Strengthened Python fundamentals</h3>
                 <p>
-                    I completed Harvard's CS50P Python course
-                    in approximately one month. I also created
-                    a detailed 150-page study book to organize
-                    what I learned and strengthen my understanding.
+                    Completed Harvard's CS50P and focused on understanding
+                    core programming concepts, functions, testing,
+                    files, and clean code.
                 </p>
             </div>
 
             <div class="timeline-item reveal">
-                <span class="timeline-dot"></span>
-                <div class="timeline-date">BUILDING PHASE</div>
-                <h3>Started creating real applications</h3>
+                <div class="timeline-dot"></div>
+                <p class="timeline-date">BUILDING PHASE</p>
+                <h3>Moved from learning to shipping</h3>
                 <p>
-                    I moved beyond tutorials and started building
-                    websites, Streamlit applications, chatbots,
-                    clinic tools, document analysis tools, and
-                    business-focused software.
+                    Started creating websites, Streamlit applications,
+                    business tools, and practical projects to develop
+                    real implementation skills.
                 </p>
             </div>
 
             <div class="timeline-item reveal">
-                <span class="timeline-dot"></span>
-                <div class="timeline-date">ENGINEERING PHASE</div>
-                <h3>Exploring backend and AI systems</h3>
+                <div class="timeline-dot"></div>
+                <p class="timeline-date">AI ENGINEERING</p>
+                <h3>Exploring LLM applications and automation</h3>
                 <p>
-                    My focus expanded toward FastAPI, SQL,
-                    APIs, LLM applications, LangChain,
-                    LangGraph, and retrieval-augmented generation.
-                    I'm learning these technologies by applying
-                    them to practical projects.
+                    Working with LLM APIs, prompts, SQL, FastAPI,
+                    and agent frameworks to understand how intelligent
+                    applications are built.
                 </p>
             </div>
 
             <div class="timeline-item reveal">
-                <span class="timeline-dot"></span>
-                <div class="timeline-date">THE LONG-TERM VISION</div>
-                <h3>Building intelligent products</h3>
+                <div class="timeline-dot"></div>
+                <p class="timeline-date">LONG-TERM VISION</p>
+                <h3>Building AI agents and SaaS products</h3>
                 <p>
-                    I want to build AI agents, useful SaaS
-                    products, and software systems that solve
-                    real business problems. This is the direction
-                    I'm working toward, one project at a time.
+                    The goal is to turn practical experience into
+                    reliable, useful software products that solve
+                    real business problems.
                 </p>
             </div>
 
@@ -1048,32 +1394,86 @@ footer {
     <div class="container">
 
         <div class="section-heading reveal">
-            <div class="section-label">// 03 — TECHNOLOGY STACK</div>
+            <p class="section-label">03 / SKILLS & TECHNOLOGIES</p>
             <div class="section-line"></div>
 
             <h2 class="section-title">
-                Technologies I <span class="red">work with.</span>
+                Tools I use to<br>
+                <span class="red">build things.</span>
             </h2>
 
             <p class="section-description">
-                My current toolkit for building applications,
-                backend systems, and AI-powered software.
-                I'm continuously expanding these skills.
+                My current toolkit is focused on Python development,
+                web applications, and the foundations of AI-powered software.
             </p>
         </div>
 
         <div class="skills-grid">
 
             <div class="skill-card reveal">
-                <div class="skill-number">01 / PROGRAMMING</div>
-                <h3>Core Development</h3>
+                <p class="skill-number">01 / PROGRAMMING</p>
+                <h3>Python Development</h3>
                 <p>
-                    Programming fundamentals and the technologies
-                    used to create software applications.
+                    Building application logic, automation scripts,
+                    and backend workflows.
                 </p>
                 <div class="tags">
                     <span>Python</span>
+                    <span>OOP</span>
+                    <span>Problem Solving</span>
+                </div>
+            </div>
+
+            <div class="skill-card reveal">
+                <p class="skill-number">02 / AI DEVELOPMENT</p>
+                <h3>LLM Applications</h3>
+                <p>
+                    Creating AI-powered tools using language models,
+                    prompts, and APIs.
+                </p>
+                <div class="tags">
+                    <span>LLM APIs</span>
+                    <span>Prompt Engineering</span>
+                    <span>RAG — Learning</span>
+                </div>
+            </div>
+
+            <div class="skill-card reveal">
+                <p class="skill-number">03 / BACKEND</p>
+                <h3>Backend & APIs</h3>
+                <p>
+                    Learning to design application backends
+                    and connect services through APIs.
+                </p>
+                <div class="tags">
+                    <span>FastAPI</span>
+                    <span>REST APIs</span>
                     <span>SQL</span>
+                </div>
+            </div>
+
+            <div class="skill-card reveal">
+                <p class="skill-number">04 / APPLICATIONS</p>
+                <h3>App Development</h3>
+                <p>
+                    Building interactive tools, dashboards,
+                    and prototypes for practical use.
+                </p>
+                <div class="tags">
+                    <span>Streamlit</span>
+                    <span>Python Apps</span>
+                    <span>Dashboards</span>
+                </div>
+            </div>
+
+            <div class="skill-card reveal">
+                <p class="skill-number">05 / WEB</p>
+                <h3>Web Development</h3>
+                <p>
+                    Creating responsive websites and interfaces
+                    for individuals and businesses.
+                </p>
+                <div class="tags">
                     <span>HTML</span>
                     <span>CSS</span>
                     <span>JavaScript</span>
@@ -1081,33 +1481,16 @@ footer {
             </div>
 
             <div class="skill-card reveal">
-                <div class="skill-number">02 / BACKEND</div>
-                <h3>Backend Engineering</h3>
+                <p class="skill-number">06 / AGENT SYSTEMS</p>
+                <h3>AI Agents & Workflows</h3>
                 <p>
-                    Learning to develop APIs, connect databases,
-                    and structure reliable application backends.
+                    Exploring agentic workflows, state management,
+                    and multi-step AI systems.
                 </p>
                 <div class="tags">
-                    <span>FastAPI</span>
-                    <span>REST APIs</span>
-                    <span>SQLite</span>
-                    <span>Streamlit</span>
-                </div>
-            </div>
-
-            <div class="skill-card reveal">
-                <div class="skill-number">03 / ARTIFICIAL INTELLIGENCE</div>
-                <h3>AI Engineering</h3>
-                <p>
-                    Building and exploring applications powered
-                    by large language models and AI workflows.
-                </p>
-                <div class="tags">
-                    <span>LLM APIs</span>
-                    <span>Prompt Engineering</span>
-                    <span>LangChain</span>
                     <span>LangGraph</span>
-                    <span>RAG</span>
+                    <span>LangChain</span>
+                    <span>Automation</span>
                 </div>
             </div>
 
@@ -1120,150 +1503,193 @@ footer {
     <div class="container">
 
         <div class="section-heading reveal">
-            <div class="section-label">// 04 — SELECTED PROJECTS</div>
+            <p class="section-label">04 / SELECTED PROJECTS</p>
             <div class="section-line"></div>
 
             <h2 class="section-title">
-                Ideas turned into <span class="red">software.</span>
+                Things I've <span class="red">built.</span>
             </h2>
 
             <p class="section-description">
-                Projects that represent my learning, experimentation,
-                and interest in solving practical problems.
+                A selection of applications and experiments focused
+                on solving practical problems through software.
             </p>
         </div>
 
         <div class="projects-grid">
 
+            <!-- DOCUMENT ASSISTANT -->
             <article class="project-card reveal">
+
                 <div class="project-visual">
-                    <span class="project-code">PROJECT_001 / HEALTHCARE</span>
-                    <span class="project-symbol">AI+</span>
+                    <span class="project-code">PROJECT_001 / DOCUMENT AI</span>
+                    <span class="project-symbol">DOC.</span>
                 </div>
+
                 <div class="project-body">
-                    <h3>Clinic AI Assistant</h3>
+                    <h3>Document Assistant</h3>
+
                     <p>
-                        An AI chatbot concept designed to help
-                        clinics respond to common patient questions
-                        and improve everyday communication.
+                        An AI-powered document assistant that helps users
+                        interact with documents and extract useful information.
                     </p>
+
                     <div class="project-stack">
-                        PYTHON · STREAMLIT · LLM APIs
+                        PYTHON · STREAMLIT · LLM API
                     </div>
-                    <a class="project-link" href="https://github.com/mddilshadamirai" target="_blank" rel="noopener noreferrer">
-                        EXPLORE PROJECTS ↗
+
+                    <a class="project-link"
+                       href="https://ai-doc-assistant-mddilshadamirai.streamlit.app/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        OPEN LIVE APP ↗
                     </a>
                 </div>
+
             </article>
 
+            <!-- CLINIC APP -->
             <article class="project-card reveal">
+
                 <div class="project-visual">
-                    <span class="project-code">PROJECT_002 / BUSINESS SOFTWARE</span>
-                    <span class="project-symbol">OS</span>
+                    <span class="project-code">PROJECT_002 / HEALTHCARE</span>
+                    <span class="project-symbol">CLINIC.</span>
                 </div>
+
                 <div class="project-body">
-                    <h3>Apex Gym OS</h3>
+                    <h3>Clinic Management App</h3>
+
                     <p>
-                        A gym management application designed
-                        around member records, membership tracking,
-                        payments, renewals, and daily operations.
+                        A clinic-focused application designed to support
+                        everyday workflows and simplify common
+                        administrative tasks.
                     </p>
+
                     <div class="project-stack">
-                        PYTHON · STREAMLIT · SQLITE
+                        PYTHON · STREAMLIT · HEALTHCARE
                     </div>
-                    <a class="project-link" href="https://github.com/mddilshadamirai" target="_blank" rel="noopener noreferrer">
-                        EXPLORE PROJECTS ↗
+
+                    <a class="project-link"
+                       href="https://theclinicappv1--mddilshadamir.streamlit.app/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        OPEN LIVE APP ↗
                     </a>
                 </div>
+
             </article>
 
+            <!-- CALCULATOR -->
             <article class="project-card reveal">
-                <div class="project-visual">
-                    <span class="project-code">PROJECT_003 / DOCUMENT AI</span>
-                    <span class="project-symbol">DOC</span>
-                </div>
-                <div class="project-body">
-                    <h3>Smart Document Insight Pro</h3>
-                    <p>
-                        A document analysis application exploring
-                        how AI can help users understand and extract
-                        useful information from documents.
-                    </p>
-                    <div class="project-stack">
-                        PYTHON · STREAMLIT · AI APIs
-                    </div>
-                    <a class="project-link" href="https://github.com/mddilshadamirai" target="_blank" rel="noopener noreferrer">
-                        EXPLORE PROJECTS ↗
-                    </a>
-                </div>
-            </article>
 
-            <article class="project-card reveal">
                 <div class="project-visual">
-                    <span class="project-code">PROJECT_004 / WEB DEVELOPMENT</span>
-                    <span class="project-symbol">WEB</span>
+                    <span class="project-code">PROJECT_003 / WEB TOOL</span>
+                    <span class="project-symbol">CALC.</span>
                 </div>
+
                 <div class="project-body">
-                    <h3>Business Websites</h3>
+                    <h3>Web Calculator</h3>
+
                     <p>
-                        Responsive websites created to help
-                        businesses establish their digital presence
-                        and make it easier for customers to connect.
+                        A lightweight browser-based calculator built
+                        as a practical web development project.
                     </p>
+
                     <div class="project-stack">
                         HTML · CSS · JAVASCRIPT
                     </div>
-                    <a class="project-link" href="https://github.com/mddilshadamirai" target="_blank" rel="noopener noreferrer">
-                        EXPLORE PROJECTS ↗
+
+                    <a class="project-link"
+                       href="https://mddilshadamirai.github.io/my_calcul_/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        OPEN LIVE APP ↗
                     </a>
                 </div>
+
+            </article>
+
+            <!-- MATHS GAME -->
+            <article class="project-card reveal">
+
+                <div class="project-visual">
+                    <span class="project-code">PROJECT_004 / GAME</span>
+                    <span class="project-symbol">ARENA.</span>
+                </div>
+
+                <div class="project-body">
+                    <h3>Maths Arena Game</h3>
+
+                    <p>
+                        An interactive maths game designed to make
+                        mathematical practice more engaging through
+                        a browser-based experience.
+                    </p>
+
+                    <div class="project-stack">
+                        PYTHON · STREAMLIT · GAME LOGIC
+                    </div>
+
+                    <a class="project-link"
+                       href="https://maths-arena-game-mddilshada.streamlit.app/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        PLAY LIVE GAME ↗
+                    </a>
+                </div>
+
             </article>
 
         </div>
     </div>
 </section>
 
-<!-- PHILOSOPHY -->
+<!-- ENGINEERING APPROACH -->
 <section id="approach">
     <div class="container">
 
         <div class="section-heading reveal">
-            <div class="section-label">// 05 — ENGINEERING MINDSET</div>
+            <p class="section-label">05 / HOW I WORK</p>
             <div class="section-line"></div>
 
             <h2 class="section-title">
-                How I approach <span class="red">building.</span>
+                From problem to<br>
+                <span class="red">practical solution.</span>
             </h2>
+
+            <p class="section-description">
+                I believe useful software starts with understanding
+                the problem, building a focused solution, and improving
+                it through feedback.
+            </p>
         </div>
 
         <div class="philosophy-grid">
 
             <div class="philosophy-card reveal">
                 <div class="philosophy-icon">⌘</div>
-                <h3>Understand the Problem</h3>
+                <h3>Start with the Problem</h3>
                 <p>
-                    Start with real requirements. Understand
-                    the problem before choosing the technology.
+                    Understand the actual need, the people facing it,
+                    and what a useful solution should achieve.
                 </p>
             </div>
 
             <div class="philosophy-card reveal">
                 <div class="philosophy-icon">⚡</div>
-                <h3>Build and Experiment</h3>
+                <h3>Build a Solution</h3>
                 <p>
-                    Turn ideas into working prototypes,
-                    test assumptions, and learn through
-                    implementation.
+                    Focus on essential features first and turn
+                    the idea into a usable application or product.
                 </p>
             </div>
 
             <div class="philosophy-card reveal">
                 <div class="philosophy-icon">↗</div>
-                <h3>Improve Continuously</h3>
+                <h3>Improve Through Feedback</h3>
                 <p>
-                    Use feedback, improve the product,
-                    strengthen the engineering, and keep
-                    moving forward.
+                    Test, fix, refine, and keep improving the
+                    product based on how people actually use it.
                 </p>
             </div>
 
@@ -1271,36 +1697,38 @@ footer {
     </div>
 </section>
 
-<!-- FUTURE DIRECTION -->
+<!-- FUTURE VISION -->
 <section id="vision">
     <div class="container">
 
         <div class="future-panel reveal">
-            <div class="section-label">// 06 — THE VISION</div>
+
+            <p class="section-label">06 / THE VISION</p>
 
             <h3>
-                More than code.<br>
-                <span class="red">Building useful technology.</span>
+                Beyond applications.<br>
+                <span class="red">Toward intelligent systems.</span>
             </h3>
 
             <p>
-                My long-term direction is to become a strong
-                AI Engineer and build intelligent software
-                products. I'm particularly interested in AI
-                agents, workflow automation, SaaS architecture,
-                and tools that help clinics and businesses
-                operate more effectively.
+                My long-term focus is AI engineering: building agents,
+                intelligent assistants, and SaaS products that help
+                businesses reduce repetitive work and operate more
+                effectively. I'm working toward that direction through
+                practical projects, stronger backend foundations,
+                and continuous learning.
             </p>
 
             <div class="future-tags">
                 <span>AI AGENTS</span>
-                <span>LLM APPLICATIONS</span>
-                <span>SAAS</span>
-                <span>BACKEND SYSTEMS</span>
+                <span>LANGGRAPH</span>
+                <span>RAG SYSTEMS</span>
+                <span>FASTAPI</span>
+                <span>SAAS PRODUCTS</span>
                 <span>INTELLIGENT AUTOMATION</span>
             </div>
-        </div>
 
+        </div>
     </div>
 </section>
 
@@ -1309,32 +1737,55 @@ footer {
     <div class="container">
 
         <div class="contact-panel reveal">
-            <div class="section-label">// 07 — CONTACT</div>
+
+            <p class="section-label">07 / GET IN TOUCH</p>
 
             <h2>
-                Have an idea?<br>
-                Let's <span class="red">build it.</span>
+                Have a problem<br>
+                worth <span class="red">solving?</span>
             </h2>
 
             <p>
-                I'm open to meaningful collaborations,
-                software projects, freelance opportunities,
-                and conversations around AI and technology.
+                I'm open to meaningful collaborations, freelance
+                projects, and conversations around AI applications,
+                automation, and practical software solutions.
             </p>
 
-            <a href="mailto:mddilshadamir@gmail.com" class="contact-button">
-                LET'S CONNECT ↗
+            <a class="contact-button"
+               href="mailto:mddilshadamir@gmail.com">
+                EMAIL ME ↗
             </a>
 
             <div class="social-links">
-                <a href="https://linkedin.com/in/md-dilshad-amir-4bb505401/" target="_blank" rel="noopener noreferrer">LINKEDIN ↗</a>
-                <a href="https://github.com/mddilshadamirai" target="_blank" rel="noopener noreferrer">GITHUB ↗</a>
-                <a href="https://x.com/" target="_blank" rel="noopener noreferrer">X ↗</a>
-                <a href="https://www.instagram.com/mddilshadamirai/" target="_blank" rel="noopener noreferrer">INSTAGRAM ↗</a>
-                <a href="https://www.youtube.com/@MdDilshadAmir" target="_blank" rel="noopener noreferrer">YOUTUBE ↗</a>
-            </div>
-        </div>
 
+                <a href="https://www.linkedin.com/in/md-dilshad-amir-4bb505401/"
+                   target="_blank" rel="noopener noreferrer">
+                    LINKEDIN ↗
+                </a>
+
+                <a href="https://github.com/mddilshadamirai"
+                   target="_blank" rel="noopener noreferrer">
+                    GITHUB ↗
+                </a>
+
+                <a href="https://www.instagram.com/mddilshadamirai/"
+                   target="_blank" rel="noopener noreferrer">
+                    INSTAGRAM ↗
+                </a>
+
+                <a href="https://www.youtube.com/@MdDilshadAmir"
+                   target="_blank" rel="noopener noreferrer">
+                    YOUTUBE ↗
+                </a>
+
+                <a href="https://x.com/"
+                   target="_blank" rel="noopener noreferrer">
+                    X ↗
+                </a>
+
+            </div>
+
+        </div>
     </div>
 </section>
 
@@ -1362,14 +1813,16 @@ const menuButton = document.getElementById("menuButton");
 const navLinks = document.getElementById("navLinks");
 
 menuButton.addEventListener("click", () => {
-    navLinks.classList.toggle("open");
-    menuButton.textContent =
-        navLinks.classList.contains("open") ? "CLOSE ✕" : "MENU ☰";
+    const isOpen = navLinks.classList.toggle("open");
+
+    menuButton.setAttribute("aria-expanded", String(isOpen));
+    menuButton.textContent = isOpen ? "CLOSE ×" : "MENU ☰";
 });
 
 navLinks.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
         navLinks.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
         menuButton.textContent = "MENU ☰";
     });
 });
@@ -1393,53 +1846,93 @@ window.addEventListener("scroll", updateProgress, { passive: true });
 updateProgress();
 
 
-/* SCROLL REVEAL */
-const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            revealObserver.unobserve(entry.target);
-        }
-    });
-}, {
-    threshold: 0.12
-});
+/* REVEAL ON SCROLL */
+const revealElements = document.querySelectorAll(".reveal");
 
-document.querySelectorAll(".reveal").forEach(element => {
-    revealObserver.observe(element);
-});
+if ("IntersectionObserver" in window) {
+
+    const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }
+
+            });
+
+        },
+        { threshold: 0.12 }
+    );
+
+    revealElements.forEach(element => {
+        revealObserver.observe(element);
+    });
+
+} else {
+
+    revealElements.forEach(element => {
+        element.classList.add("visible");
+    });
+
+}
 
 
 /* ACTIVE NAVIGATION */
 const sections = document.querySelectorAll("main section[id]");
 const navItems = document.querySelectorAll(".nav-links a");
 
-const activeObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            navItems.forEach(link => {
-                link.classList.toggle(
-                    "active",
-                    link.getAttribute("href") === "#" + entry.target.id
-                );
+if ("IntersectionObserver" in window) {
+
+    const activeObserver = new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    navItems.forEach(link => {
+
+                        link.classList.toggle(
+                            "active",
+                            link.getAttribute("href") === "#" + entry.target.id
+                        );
+
+                    });
+
+                }
+
             });
+
+        },
+        {
+            rootMargin: "-30% 0px -60% 0px"
         }
+    );
+
+    sections.forEach(section => {
+        activeObserver.observe(section);
     });
-}, {
-    rootMargin: "-30% 0px -60% 0px"
-});
 
-sections.forEach(section => activeObserver.observe(section));
+}
 
 
-/* PARTICLE BACKGROUND */
+/* BACKGROUND PARTICLES */
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
 
 let particles = [];
+let animationFrame = null;
 let mouse = { x: -1000, y: -1000 };
 
+const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+).matches;
+
 function resizeCanvas() {
+
     const ratio = Math.min(window.devicePixelRatio || 1, 2);
 
     canvas.width = window.innerWidth * ratio;
@@ -1449,9 +1942,11 @@ function resizeCanvas() {
     canvas.style.height = window.innerHeight + "px";
 
     ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+
 }
 
 function createParticles() {
+
     particles = [];
 
     const amount = Math.min(
@@ -1460,20 +1955,32 @@ function createParticles() {
     );
 
     for (let i = 0; i < amount; i++) {
+
         particles.push({
+
             x: Math.random() * window.innerWidth,
             y: Math.random() * window.innerHeight,
             size: Math.random() * 1.4 + .4,
             speed: Math.random() * .22 + .06,
             opacity: Math.random() * .35 + .08
+
         });
+
     }
+
 }
 
 function drawParticles() {
-    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+    ctx.clearRect(
+        0,
+        0,
+        window.innerWidth,
+        window.innerHeight
+    );
 
     particles.forEach(p => {
+
         p.y -= p.speed;
 
         if (p.y < -5) {
@@ -1491,32 +1998,64 @@ function drawParticles() {
         }
 
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+
+        ctx.arc(
+            p.x,
+            p.y,
+            p.size,
+            0,
+            Math.PI * 2
+        );
+
         ctx.fillStyle = `rgba(255,52,52,${p.opacity})`;
         ctx.fill();
+
     });
 
-    requestAnimationFrame(drawParticles);
+    animationFrame = requestAnimationFrame(drawParticles);
+
 }
 
-window.addEventListener("mousemove", event => {
-    mouse.x = event.clientX;
-    mouse.y = event.clientY;
-});
 
-window.addEventListener("mouseout", () => {
-    mouse.x = -1000;
-    mouse.y = -1000;
-});
+/* INITIALIZE PARTICLES */
+if (!reduceMotion) {
 
-window.addEventListener("resize", () => {
     resizeCanvas();
     createParticles();
-});
+    drawParticles();
 
-resizeCanvas();
-createParticles();
-drawParticles();
+    window.addEventListener("mousemove", event => {
+        mouse.x = event.clientX;
+        mouse.y = event.clientY;
+    });
+
+    window.addEventListener("mouseout", () => {
+        mouse.x = -1000;
+        mouse.y = -1000;
+    });
+
+    window.addEventListener("resize", () => {
+        resizeCanvas();
+        createParticles();
+    });
+
+}
+
+
+/* PAUSE PARTICLES WHEN TAB IS HIDDEN */
+document.addEventListener("visibilitychange", () => {
+
+    if (document.hidden) {
+
+        cancelAnimationFrame(animationFrame);
+
+    } else if (!reduceMotion) {
+
+        drawParticles();
+
+    }
+
+});
 </script>
 
 </body>
