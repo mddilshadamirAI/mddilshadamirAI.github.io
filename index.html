@@ -4,58 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MD Dilshad Amir | Software Engineer Specialisation in AI</title>
-    
-    <!-- Identity Metadata -->
     <meta name="author" content="MD Dilshad Amir">
     <meta name="keywords" content="AI Engineer, Software Engineer, Makhdumpur, Bihar, Python, SQL, mddilshadamirAI">
-    
-    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-        /* ==========================================================================
-           DESIGN SYSTEM & CSS VARIABLES
-           Apple + Linear + Vercel + Premium AI SaaS Aesthetic
-           ========================================================================== */
         :root {
             --bg-primary: #FAFAF7;
             --bg-glass: rgba(255, 255, 255, 0.72);
             --bg-glass-card: rgba(255, 255, 255, 0.65);
             --bg-glass-hover: rgba(255, 255, 255, 0.88);
-            
             --text-main: #0F172A;
             --text-muted: #475569;
             --text-light: #64748B;
-            
-            /* Primary Accent: Deep Burgundy / Crimson */
             --red-primary: #991B1B;
             --red-dark: #7F1D1D;
             --red-light: #B91C1C;
             --red-glow: rgba(153, 27, 27, 0.15);
-
-            /* Secondary Accent: Teal / Blue-Green */
             --teal-primary: #0D9488;
             --teal-dark: #0F766E;
             --teal-light: #14B8A6;
             --teal-glow: rgba(13, 148, 136, 0.15);
-
-            /* Borders & Shadows */
             --border-glass: rgba(226, 232, 240, 0.8);
             --border-glass-hover: rgba(13, 148, 136, 0.3);
             --shadow-subtle: 0 4px 24px -2px rgba(15, 23, 42, 0.04), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
             --shadow-hover: 0 20px 40px -15px rgba(15, 23, 42, 0.08), 0 0 20px rgba(13, 148, 136, 0.1);
-            
             --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Dark Theme / High Contrast adaptations if needed, keeping light professional SaaS palette as requested */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         html {
             scroll-behavior: smooth;
@@ -72,10 +51,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* ==========================================================================
-           CONTINUOUSLY ROTATING COLOR-CHANGING BACKGROUND ATMOSPHERE
-           Smooth 30-second cycle: Ivory -> Soft Blue -> Pale Mint -> Lavender -> Rose -> Ivory
-           ========================================================================== */
         .ambient-background {
             position: fixed;
             top: 0;
@@ -95,11 +70,12 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle at 30% 30%, rgba(240, 253, 250, 0.9) 0%, transparent 40%),
-                        radial-gradient(circle at 70% 20%, rgba(239, 246, 65, 0.4) 0%, transparent 45%),
-                        radial-gradient(circle at 80% 80%, rgba(245, 243, 255, 0.8) 0%, transparent 40%),
-                        radial-gradient(circle at 20% 80%, rgba(254, 242, 242, 0.7) 0%, transparent 45%),
-                        radial-gradient(circle at 50% 50%, rgba(248, 250, 252, 0.9) 0%, transparent 60%);
+            background:
+                radial-gradient(circle at 30% 30%, rgba(240, 253, 250, 0.9) 0%, transparent 40%),
+                radial-gradient(circle at 70% 20%, rgba(239, 246, 65, 0.4) 0%, transparent 45%),
+                radial-gradient(circle at 80% 80%, rgba(245, 243, 255, 0.8) 0%, transparent 40%),
+                radial-gradient(circle at 20% 80%, rgba(254, 242, 242, 0.7) 0%, transparent 45%),
+                radial-gradient(circle at 50% 50%, rgba(248, 250, 252, 0.9) 0%, transparent 60%);
             animation: rotateAmbientBackground 30s linear infinite;
         }
 
@@ -113,38 +89,17 @@
         }
 
         @keyframes rotateAmbientBackground {
-            0% {
-                transform: rotate(0deg) scale(1);
-                filter: hue-rotate(0deg);
-            }
-            50% {
-                transform: rotate(180deg) scale(1.1);
-                filter: hue-rotate(25deg);
-            }
-            100% {
-                transform: rotate(360deg) scale(1);
-                filter: hue-rotate(0deg);
-            }
+            0% { transform: rotate(0deg) scale(1); filter: hue-rotate(0deg); }
+            50% { transform: rotate(180deg) scale(1.1); filter: hue-rotate(25deg); }
+            100% { transform: rotate(360deg) scale(1); filter: hue-rotate(0deg); }
         }
 
         @media (prefers-reduced-motion: reduce) {
-            .ambient-background::before {
-                animation: none;
-            }
+            .ambient-background::before { animation: none; }
         }
 
-        /* ==========================================================================
-           UTILITY COLOR CLASSES (Strategic Word Coloration)
-           ========================================================================== */
-        .text-red {
-            color: var(--red-primary);
-            font-weight: 700;
-        }
-
-        .text-teal {
-            color: var(--teal-primary);
-            font-weight: 700;
-        }
+        .text-red { color: var(--red-primary); font-weight: 700; }
+        .text-teal { color: var(--teal-primary); font-weight: 700; }
 
         .text-gradient {
             background: linear-gradient(135deg, var(--red-primary), var(--teal-primary));
@@ -159,9 +114,6 @@
             font-weight: 700;
         }
 
-        /* ==========================================================================
-           FLOATING GLASS NAVIGATION BAR
-           ========================================================================== */
         nav {
             position: fixed;
             top: 20px;
@@ -183,20 +135,8 @@
             transition: var(--transition-smooth);
         }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-
-        .main-logo {
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 1.5px solid var(--teal-primary);
-        }
+        .logo-container { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .main-logo { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1.5px solid var(--teal-primary); }
 
         .logo-text {
             font-weight: 700;
@@ -208,12 +148,7 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 28px;
-            align-items: center;
-        }
+        .nav-links { display: flex; list-style: none; gap: 28px; align-items: center; }
 
         .nav-links a {
             text-decoration: none;
@@ -236,17 +171,9 @@
             border-radius: 2px;
         }
 
-        .nav-links a:hover {
-            color: var(--teal-primary);
-        }
+        .nav-links a:hover { color: var(--teal-primary); }
+        .nav-links a:hover::after { width: 100%; }
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* ==========================================================================
-           HERO SECTION & SPLINE INTEGRATION
-           ========================================================================== */
         #hero-canvas {
             position: absolute;
             top: 0;
@@ -258,10 +185,7 @@
             opacity: 0.85;
         }
 
-        spline-viewer {
-            width: 100%;
-            height: 100%;
-        }
+        spline-viewer { width: 100%; height: 100%; }
 
         .banner-hero {
             position: relative;
@@ -295,9 +219,7 @@
             transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .banner-wrapper:hover .master-banner {
-            transform: scale(1.02);
-        }
+        .banner-wrapper:hover .master-banner { transform: scale(1.02); }
 
         .banner-overlay {
             position: absolute;
@@ -306,9 +228,6 @@
             mix-blend-mode: overlay;
         }
 
-        /* ==========================================================================
-           GLASS WRAPPERS & GENERAL SECTIONS
-           ========================================================================== */
         .glass-wrap {
             max-width: 1200px;
             margin: 0 auto;
@@ -360,14 +279,7 @@
             margin-bottom: 16px;
         }
 
-        /* ==========================================================================
-           HERO QUOTE SECTION
-           ========================================================================== */
-        .hero-quote-section {
-            padding: 40px 8%;
-            position: relative;
-            z-index: 2;
-        }
+        .hero-quote-section { padding: 40px 8%; position: relative; z-index: 2; }
 
         .quote-container {
             max-width: 900px;
@@ -382,14 +294,7 @@
             position: relative;
         }
 
-        .quote-icon {
-            font-size: 4rem;
-            color: var(--teal-primary);
-            line-height: 0.5;
-            display: block;
-            margin-bottom: 20px;
-            opacity: 0.4;
-        }
+        .quote-icon { font-size: 4rem; color: var(--teal-primary); line-height: 0.5; display: block; margin-bottom: 20px; opacity: 0.4; }
 
         .pro-quote {
             font-size: clamp(1.35rem, 2.2vw, 1.85rem);
@@ -400,18 +305,8 @@
             line-height: 1.4;
         }
 
-        .quote-author {
-            font-style: normal;
-            font-weight: 600;
-            color: var(--text-light);
-            font-size: 1rem;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-        }
+        .quote-author { font-style: normal; font-weight: 600; color: var(--text-light); font-size: 1rem; letter-spacing: 0.05em; text-transform: uppercase; }
 
-        /* ==========================================================================
-           THE LAB (WORKS GRID)
-           ========================================================================== */
         .works-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -443,9 +338,7 @@
             transition: opacity 0.3s ease;
         }
 
-        .work-card:hover::before {
-            opacity: 1;
-        }
+        .work-card:hover::before { opacity: 1; }
 
         .card-icon {
             width: 56px;
@@ -459,20 +352,8 @@
             border: 1px solid rgba(13, 148, 136, 0.15);
         }
 
-        .work-card h3 {
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 12px;
-            letter-spacing: -0.02em;
-        }
-
-        .work-card p {
-            font-size: 0.96rem;
-            color: var(--text-muted);
-            margin-bottom: 24px;
-            flex-grow: 1;
-        }
+        .work-card h3 { font-size: 1.35rem; font-weight: 700; color: var(--text-main); margin-bottom: 12px; letter-spacing: -0.02em; }
+        .work-card p { font-size: 0.96rem; color: var(--text-muted); margin-bottom: 24px; flex-grow: 1; }
 
         .explore-link {
             display: inline-flex;
@@ -485,20 +366,15 @@
             transition: gap 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
         }
 
-        .explore-link:hover {
-            color: var(--teal-light);
-            gap: 14px;
-        }
+        .explore-link:hover { color: var(--teal-light); gap: 14px; }
 
-        /* ==========================================================================
-           TECHNICAL ARSENAL (SKILLS GRID)
-           ========================================================================== */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 24px;
             margin-top: 40px;
-        }
+
+                }
 
         .skill-item {
             background: var(--bg-glass-card);
@@ -556,9 +432,6 @@
             100% { transform: translateX(100%); }
         }
 
-        /* ==========================================================================
-           TIMELINE SECTION (180-DAY ROADMAP)
-           ========================================================================== */
         .timeline-section {
             padding: 100px 8%;
             position: relative;
@@ -567,10 +440,7 @@
             margin: 0 auto;
         }
 
-        .timeline {
-            position: relative;
-            padding-left: 32px;
-        }
+        .timeline { position: relative; padding-left: 32px; }
 
         .timeline::before {
             content: '';
@@ -582,10 +452,7 @@
             background: linear-gradient(180deg, var(--teal-primary), var(--red-primary), var(--border-glass));
         }
 
-        .timeline-event {
-            position: relative;
-            margin-bottom: 40px;
-        }
+        .timeline-event { position: relative; margin-bottom: 40px; }
 
         .timeline-event::before {
             content: '';
@@ -631,18 +498,9 @@
             margin-bottom: 12px;
         }
 
-        .event-content p {
-            font-size: 0.96rem;
-            margin-bottom: 10px;
-        }
+        .event-content p { font-size: 0.96rem; margin-bottom: 10px; }
+        .event-content p:last-child { margin-bottom: 0; }
 
-        .event-content p:last-child {
-            margin-bottom: 0;
-        }
-
-        /* ==========================================================================
-           JOURNEY SECTION (QUALIFICATIONS & LONG STORY)
-           ========================================================================== */
         .journey-container {
             display: grid;
             grid-template-columns: 1.1fr 1.9fr;
@@ -665,9 +523,7 @@
             margin-bottom: 32px;
         }
 
-        .qual-item:last-child {
-            margin-bottom: 0;
-        }
+        .qual-item:last-child { margin-bottom: 0; }
 
         .qual-year {
             display: inline-block;
@@ -689,11 +545,7 @@
             margin-bottom: 6px;
         }
 
-        .qual-item p {
-            font-size: 0.92rem;
-            color: var(--text-muted);
-            margin-bottom: 0;
-        }
+        .qual-item p { font-size: 0.92rem; color: var(--text-muted); margin-bottom: 0; }
 
         .story-box {
             background: var(--bg-glass-card);
@@ -703,18 +555,9 @@
             box-shadow: var(--shadow-subtle);
         }
 
-        .story-content p {
-            margin-bottom: 20px;
-            font-size: 1.02rem;
-        }
+        .story-content p { margin-bottom: 20px; font-size: 1.02rem; }
+        .story-content p strong { color: var(--text-main); }
 
-        .story-content p strong {
-            color: var(--text-main);
-        }
-
-        /* ==========================================================================
-           CONTACT & FOOTER
-           ========================================================================== */
         .contact-card {
             text-align: center;
             max-width: 800px;
@@ -734,10 +577,7 @@
             color: var(--text-main);
         }
 
-        .contact-card p {
-            font-size: 1.1rem;
-            margin-bottom: 32px;
-        }
+        .contact-card p { font-size: 1.1rem; margin-bottom: 32px; }
 
         .social-links {
             display: flex;
@@ -825,15 +665,9 @@
             transition: color 0.2s ease;
         }
 
-        .footer-contact a:hover {
-            color: var(--teal-light);
-        }
+        .footer-contact a:hover { color: var(--teal-light); }
 
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
+        .footer-links { display: flex; flex-direction: column; gap: 12px; }
 
         .footer-links a {
             color: var(--text-muted);
@@ -843,15 +677,8 @@
             transition: color 0.2s ease;
         }
 
-        .footer-links a:hover {
-            color: var(--teal-primary);
-        }
-
-        .thanks-msg {
-            font-weight: 600;
-            color: var(--text-main);
-            margin-bottom: 8px !important;
-        }
+        .footer-links a:hover { color: var(--teal-primary); }
+        .thanks-msg { font-weight: 600; color: var(--text-main); margin-bottom: 8px !important; }
 
         .footer-bottom {
             max-width: 1200px;
@@ -861,48 +688,170 @@
             text-align: center;
         }
 
-        .footer-bottom p {
-            font-size: 0.88rem;
-            color: var(--text-light);
-            margin-bottom: 0;
-        }
+        .footer-bottom p { font-size: 0.88rem; color: var(--text-light); margin-bottom: 0; }
 
-        /* ==========================================================================
-           RESPONSIVE ADJUSTMENTS
-           ========================================================================== */
         @media (max-width: 900px) {
-            .journey-container {
-                grid-template-columns: 1fr;
-            }
-            .nav-links {
-                display: none;
-            }
-            nav {
-                justify-content: center;
-                padding: 14px 20px;
-                width: 92%;
-            }
+            .journey-container { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            nav { justify-content: center; padding: 14px 20px; width: 92%; }
         }
 
         @media (max-width: 600px) {
-            .glass-wrap {
-                padding: 60px 5%;
-            }
-            .content-box, .glass-card, .work-card, .contact-card, .event-content, .qualifications-box, .story-box {
-                padding: 24px;
-            }
-            .quote-container {
-                padding: 40px 20px;
-            }
+            .glass-wrap { padding: 60px 5%; }
+            .content-box, .glass-card, .work-card, .contact-card, .event-content,
+            .qualifications-box, .story-box { padding: 24px; }
+            .quote-container { padding: 40px 20px; }
         }
+
+/* ================= CYBER ARENA OVERRIDE ================= */
+:root {
+  --bg-primary: #050505;
+  --bg-glass: rgba(12, 12, 12, .78);
+  --bg-glass-card: rgba(12, 12, 12, .76);
+  --bg-glass-hover: rgba(24, 5, 9, .94);
+  --text-main: #fff;
+  --text-muted: #d0d0d0;
+  --text-light: #929292;
+  --red-primary: #ff0033;
+  --red-dark: #c90029;
+  --red-light: #ff3158;
+  --red-glow: rgba(255, 0, 51, .22);
+  --teal-primary: #ff0033;
+  --teal-dark: #ff3158;
+  --teal-light: #ff6b83;
+  --teal-glow: rgba(255, 0, 51, .18);
+  --border-glass: rgba(255, 0, 51, .28);
+  --border-glass-hover: rgba(255, 0, 51, .8);
+  --shadow-subtle: 0 8px 30px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.025);
+  --shadow-hover: 0 12px 40px rgba(255,0,51,.16), 0 0 24px rgba(255,0,51,.12);
+  --font-main: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+}
+html, body { background: #050505 !important; color: #fff !important; }
+body { isolation: isolate; }
+.ambient-background { background: #050505 !important; opacity: .22; }
+.ambient-background::before {
+  background: radial-gradient(circle at 15% 20%, rgba(255,0,51,.15), transparent 34%),
+              radial-gradient(circle at 85% 75%, rgba(255,0,51,.09), transparent 35%) !important;
+}
+.ambient-background::after {
+  background-image: radial-gradient(rgba(255,0,51,.18) .7px, transparent .7px) !important;
+  background-size: 34px 34px !important; opacity: .22 !important;
+}
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: 9000; pointer-events: none;
+  background: repeating-linear-gradient(to bottom, transparent 0 3px, rgba(255,255,255,.018) 4px);
+  opacity: .24; mix-blend-mode: screen;
+}
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: 8999; pointer-events: none;
+  background: linear-gradient(rgba(255,0,51,.025) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255,0,51,.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,.7), transparent 95%);
+}
+nav {
+  background: rgba(5,5,5,.88) !important; border: 1px solid rgba(255,0,51,.45) !important;
+  box-shadow: 0 8px 35px rgba(0,0,0,.65), 0 0 22px rgba(255,0,51,.10) !important;
+}
+.logo-text { color: #fff !important; background: none !important; -webkit-text-fill-color: #fff !important; }
+.main-logo { border-color: #ff0033 !important; }
+.nav-links a { color: #ddd !important; }
+.nav-links a:hover, .nav-links a::after { color: #ff0033 !important; background: #ff0033 !important; }
+.banner-wrapper, .content-box, .glass-card, .work-card, .contact-card, .event-content,
+.quote-container, .skill-item, .qualifications-box, .story-box {
+  background: rgba(10,10,10,.78) !important;
+  border: 1px solid rgba(255,0,51,.28) !important;
+  box-shadow: 0 12px 38px rgba(0,0,0,.55), inset 0 0 22px rgba(255,0,51,.025) !important;
+  backdrop-filter: blur(18px);
+}
+.content-box:hover, .glass-card:hover, .work-card:hover, .contact-card:hover,
+.skill-item:hover, .event-content:hover, .qualifications-box:hover, .story-box:hover,
+.arena-agent-active {
+  background: rgba(22,5,9,.92) !important;
+  border-color: rgba(255,0,51,.85) !important;
+  box-shadow: 0 0 0 1px rgba(255,0,51,.12), 0 0 32px rgba(255,0,51,.17) !important;
+}
+.section-title, .center-title, .work-card h3, .event-content h3,
+.qual-item h4, .contact-card h2, .footer-contact h3, .footer-links h3,
+.pro-quote, .story-content p strong, .thanks-msg { color: #fff !important; }
+p, .work-card p, .event-content p, .story-content p, .footer-contact p,
+.footer-feedback p { color: #c5c5c5 !important; }
+.text-red, .text-teal, .glow-text, .event-date, .qual-year,
+.explore-link, .footer-contact a, .footer-links a:hover { color: #ff3158 !important; }
+.text-gradient {
+  background: linear-gradient(110deg, #fff 5%, #ff0033 55%, #ff8a9e) !important;
+  -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important;
+}
+.glow-text { text-shadow: 0 0 18px rgba(255,0,51,.5) !important; }
+.quote-container { background: rgba(10,10,10,.82) !important; }
+.quote-icon { color: #ff0033 !important; }
+.work-card::before { background: linear-gradient(90deg, #ff0033, #fff) !important; }
+.card-icon { background: rgba(255,0,51,.08) !important; border-color: rgba(255,0,51,.35) !important; }
+.progress-bar { background: #292929 !important; }
+.progress { background: linear-gradient(90deg, #ff0033, #ff8a9e) !important; box-shadow: 0 0 12px rgba(255,0,51,.45); }
+.timeline::before { background: linear-gradient(180deg, #ff0033, #fff, rgba(255,0,51,.15)) !important; }
+.timeline-event::before { background: #050505 !important; border-color: #ff0033 !important; box-shadow: 0 0 12px rgba(255,0,51,.6) !important; }
+.qual-item { border-left-color: rgba(255,0,51,.45) !important; }
+.qual-year { background: rgba(255,0,51,.12) !important; }
+.social-btn:first-child { background: #ff0033 !important; box-shadow: 0 0 22px rgba(255,0,51,.25) !important; }
+.social-btn:last-child { background: #111 !important; color: #fff !important; border-color: rgba(255,0,51,.45) !important; }
+.social-btn:last-child:hover { border-color: #ff0033 !important; color: #ff3158 !important; }
+.site-footer { background: rgba(0,0,0,.75) !important; border-top-color: rgba(255,0,51,.28) !important; }
+.footer-bottom { border-top-color: rgba(255,0,51,.2) !important; }
+.footer-bottom p { color: #888 !important; }
+a:focus-visible { outline: 2px solid #ff0033; outline-offset: 4px; }
+#hero-canvas { opacity: .28 !important; pointer-events: none !important; }
+#hero-canvas spline-viewer { pointer-events: none !important; }
+#home, #about, #lab, #sprint, #journey, #contact { scroll-margin-top: 110px; }
+
+#arena-layer { position: fixed; inset: 0; z-index: 9500; pointer-events: none; overflow: hidden; }
+#arena-vectors { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .5; }
+.arena-vector { stroke: #ff0033; stroke-width: 1; stroke-dasharray: 4 8; opacity: .55; filter: drop-shadow(0 0 4px #ff0033); }
+.arena-agent {
+  position: absolute; left: 0; top: 0; width: 12px; height: 12px; opacity: 0;
+  will-change: transform; transition: opacity .3s ease;
+}
+.arena-agent.visible { opacity: 1; }
+.arena-dot {
+  position: absolute; left: 0; top: 0; width: 9px; height: 9px; border-radius: 50%;
+  background: #ff0033; box-shadow: 0 0 8px #ff0033, 0 0 20px rgba(255,0,51,.75);
+  border: 1px solid #fff;
+}
+.arena-agent.user-agent .arena-dot { background: #fff; box-shadow: 0 0 9px #fff, 0 0 22px #ff0033; }
+.arena-label {
+  position: absolute; left: 14px; top: -8px; white-space: nowrap; padding: 3px 6px;
+  color: #fff; font: 9px/1.2 ui-monospace, SFMono-Regular, Consolas, monospace;
+  letter-spacing: .06em; background: rgba(5,5,5,.88); border: 1px solid rgba(255,0,51,.55);
+  box-shadow: 0 0 12px rgba(255,0,51,.13); text-transform: uppercase;
+}
+.arena-agent.user-agent .arena-label { border-color: rgba(255,255,255,.7); }
+.arena-particle {
+  position: absolute; width: 3px; height: 3px; border-radius: 50%; background: #ff3158;
+  box-shadow: 0 0 8px #ff0033; pointer-events: none; animation: arenaFade .65s ease-out forwards;
+}
+@keyframes arenaFade { to { opacity: 0; transform: translate(-50%,-50%) scale(.1); } }
+#arena-hud {
+  position: fixed; right: 18px; bottom: 18px; z-index: 9501; pointer-events: none;
+  padding: 9px 12px; color: #ddd; background: rgba(5,5,5,.82);
+  border: 1px solid rgba(255,0,51,.45); box-shadow: 0 0 18px rgba(255,0,51,.1);
+  font: 10px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .07em;
+}
+#arena-hud strong { color: #ff3158; font-weight: 700; }
+@media (max-width: 700px) {
+  #arena-hud { right: 8px; bottom: 8px; font-size: 8px; padding: 6px 8px; }
+  .arena-label { font-size: 7px; }
+  .arena-agent:nth-of-type(n+5) { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  #arena-layer { display: none; }
+}
+
     </style>
 </head>
 <body>
-
-    <!-- Continuously Rotating Color-Changing Background Atmosphere -->
     <div class="ambient-background"></div>
 
-    <!-- Floating Glass Navigation Bar -->
     <nav>
         <a href="#home" class="logo-container">
             <img src="logo.png" alt="Logo" class="main-logo">
@@ -917,7 +866,6 @@
         </ul>
     </nav>
 
-    <!-- Hero Section & Spline Integration -->
     <div id="hero-canvas">
         <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.93/build/spline-viewer.js"></script>
         <spline-viewer url="https://prod.spline.design/6Wq1Q7nIlM848S1e/scene.splinecode"></spline-viewer>
@@ -930,7 +878,6 @@
         </div>
     </section>
 
-    <!-- Bio Section -->
     <section id="about" class="glass-wrap">
         <div class="content-box" data-aos="fade-right">
             <h2 class="section-title">The <span class="text-red">Founder's</span> Journey</h2>
@@ -938,23 +885,21 @@
         </div>
     </section>
 
-    <!-- Hero Quote Section -->
     <section class="hero-quote-section">
         <div class="quote-container" data-aos="zoom-in">
             <span class="quote-icon">“</span>
             <blockquote class="pro-quote">
-                <span class="text-red">Execution</span> is the only <span class="text-gradient">differentiator</span>. 
+                <span class="text-red">Execution</span> is the only <span class="text-gradient">differentiator</span>.
                 I don't just learn code; I build <span class="text-teal">systems</span> that <span class="glow-text">solve problems</span>.
             </blockquote>
             <cite class="quote-author">— MD Dilshad Amir</cite>
         </div>
     </section>
 
-    <!-- The Lab (Innovative Works) -->
     <section id="lab" class="glass-wrap" style="padding-top: 40px;">
         <h2 class="section-title" data-aos="fade-down">Innovative Works Of <span class="text-teal">Md Dilshad Amir</span></h2>
+
         <div class="works-grid">
-            
             <div class="work-card" data-aos="flip-up">
                 <div class="card-icon" style="font-size: 1.75rem;">📄</div>
                 <h3>Document Assistant</h3>
@@ -977,33 +922,35 @@
                 <p>Precision arithmetic tool designed for mobile-first accessibility and clean UI.</p>
                 <a href="https://mddilshadamirai.github.io/my_calcul_/" target="_blank" class="explore-link">Open the App &rarr;</a>
             </div>
-            
+
             <div class="work-card" data-aos="flip-up" data-aos-delay="250">
                 <div class="card-icon" style="font-size: 1.75rem;">⚔️</div>
                 <h3>Maths Arena Game</h3>
                 <p>Maths Arena Game to increase your calculation speed with enjoyment.</p>
                 <a href="https://maths-arena-game-mddilshada.streamlit.app/" target="_blank" class="explore-link">Play the Game &rarr;</a>
             </div>
-            
         </div>
     </section>
 
-    <!-- Technical Arsenal -->
     <section id="sprint" class="glass-wrap">
         <h2 class="section-title" data-aos="fade-left">Technical <span class="text-teal">Arsenal</span></h2>
+
         <div class="skills-grid">
             <div class="skill-item" data-aos="zoom-in">
                 <span><span class="text-teal">Python</span> & <span class="text-teal">Automation</span></span>
                 <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
             </div>
+
             <div class="skill-item" data-aos="zoom-in" data-aos-delay="100">
                 <span>Learning <span class="text-teal">SQL</span> & Database Design</span>
                 <div class="progress-bar"><div class="progress" style="width: 70%;"></div></div>
             </div>
+
             <div class="skill-item" data-aos="zoom-in" data-aos-delay="200">
                 <span>Working towards gaining knowledge of Complex <span class="text-teal">AI Systems</span></span>
                 <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
             </div>
+
             <div class="skill-item" data-aos="zoom-in" data-aos-delay="300">
                 <span>Frontend (Streamlit/HTML)</span>
                 <div class="progress-bar"><div class="progress" style="width: 75%;"></div></div>
@@ -1011,9 +958,9 @@
         </div>
     </section>
 
-    <!-- Timeline Roadmap -->
     <section class="timeline-section">
         <h2 class="center-title" data-aos="fade-up">180-Day <span class="text-gradient">Roadmap</span></h2>
+
         <div class="timeline">
             <div class="timeline-event" data-aos="fade-right">
                 <div class="event-date">April 2026</div>
@@ -1022,6 +969,7 @@
                     <p>Started the journey on a Chromebook. Pushed first code to GitHub.</p>
                 </div>
             </div>
+
             <div class="timeline-event" data-aos="fade-left">
                 <div class="event-date">May 2026</div>
                 <div class="event-content">
@@ -1029,9 +977,10 @@
                     <p>Launched Clinic App and reached strong development momentum.</p>
                 </div>
             </div>
+
             <div class="timeline-event" data-aos="fade-right">
                 <div class="event-date">Right Now</div>
-                <div class="event-content" style="border-color: rgba(13, 148, 136, 0.4); background: rgba(255, 255, 255, 0.85);">
+                <div class="event-content">
                     <h3><span class="text-red">Freelance</span> Launch</h3>
                     <p>I am <span class="text-red">Open to freelance</span> work: I can <span class="text-teal">Build AI Chatbot</span> and Streamlit App for you.</p>
                     <p>I can also make basic business apps and websites for your businesses and clinics.</p>
@@ -1040,22 +989,23 @@
         </div>
     </section>
 
-    <!-- Qualifications & Journey -->
     <section id="journey" class="glass-wrap">
         <div class="journey-container">
-            <!-- LEFT SIDE: QUALIFICATIONS -->
             <div class="qualifications-box" data-aos="fade-right">
                 <h2 class="section-title" style="font-size: 1.75rem; margin-bottom: 24px;">Qualifications</h2>
+
                 <div class="qual-item">
                     <span class="qual-year">2026</span>
                     <h4><span class="text-teal">AI Engineer</span> (Self-Taught)</h4>
                     <p>Specializing in LangGraph, SQL, FastAPI, and Python automation.</p>
                 </div>
+
                 <div class="qual-item">
                     <span class="qual-year">2026</span>
                     <h4>CS50 <span class="text-teal">SQL</span> - Harvard University</h4>
                     <p>Completed Lecture 0: Querying & SQLite fundamentals.</p>
                 </div>
+
                 <div class="qual-item">
                     <span class="qual-year">2025</span>
                     <h4>12th Grade Graduate</h4>
@@ -1063,14 +1013,14 @@
                 </div>
             </div>
 
-            <!-- RIGHT SIDE: THE LONG STORY -->
             <div class="story-box" data-aos="fade-left">
                 <h2 class="section-title" style="font-size: 1.75rem; margin-bottom: 24px;">The <span class="text-red">Founder's</span> Journey</h2>
+
                 <div class="story-content">
                     <p><strong>The Spark:</strong> My journey didn't start in a high-tech lab; it started with a single question: <em>"Can I build the future on a Chromebook?"</em> With 8GB of RAM and an Intel processor, I realized that hardware isn't the limit—<span class="text-red">execution</span> is.</p>
-                    
+
                     <p><strong>The Sprint:</strong> In early April 2026, I committed to a 180-day sprint. Within the first weeks, I moved beyond basic Python to <span class="text-teal">build</span> apps with real interfaces, learning to self-host infrastructure using Docker basics.</p>
-                    
+
                     <p><strong>Building the Lab:</strong> I didn't just study; I deployed. From a calculator app on GitHub Pages to a Clinic Management System on Streamlit, I proved that continuous <span class="text-red">building</span> delivers professional tools fast.</p>
 
                     <p><strong>Looking Ahead:</strong> Every commit is a step toward <span class="text-red">Bengaluru</span>, where I plan to immerse myself in the tech ecosystem. This isn't just code; it's the blueprint of my <span class="text-red">career</span>.</p>
@@ -1081,11 +1031,11 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="glass-wrap">
         <div class="contact-card" data-aos="fade-up">
             <h2>Let's Network in <span class="text-red">Bengaluru</span></h2>
             <p>Preparing for relocation to join the heart of India's tech scene.</p>
+
             <div class="social-links">
                 <a href="https://github.com/mddilshadamirAI" target="_blank" class="social-btn">GitHub</a>
                 <a href="mailto:mddilshadamir@gmail.com" class="social-btn">Email Me</a>
@@ -1093,7 +1043,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-content" data-aos="fade-up">
             <div class="footer-contact">
@@ -1116,13 +1065,280 @@
                 <p>Your feedback is vital for my growth. Please share your thoughts for further improvement of my projects.</p>
             </div>
         </div>
+
         <div class="footer-bottom">
             <p>© 2026 MD Dilshad Amir | Software / <span class="text-teal">AI Engineer</span></p>
         </div>
     </footer>
 
-    <!-- AOS Script -->
+    <!-- Seven decorative cursor agents -->
+    <div id="arena-layer" aria-hidden="true">
+        <svg id="arena-vectors" preserveAspectRatio="none"></svg>
+    </div>
+
+    <div id="arena-hud" aria-hidden="true">
+        <div><strong>ARENA.RUNTIME</strong> // ACTIVE</div>
+        <div>AGENTS: <strong id="arena-agent-count">07</strong> &nbsp; LINK: <strong>STABLE</strong></div>
+        <div id="arena-task">SYSTEM: MONITORING UI</div>
+    </div>
+
+    <script>
+    (() => {
+        "use strict";
+
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+        const layer = document.getElementById("arena-layer");
+        const svg = document.getElementById("arena-vectors");
+        const task = document.getElementById("arena-task");
+
+        if (!layer || !svg) return;
+
+        const roles = [
+            "Architect.exe",
+            "Compiler",
+            "Debugger",
+            "Layout_Engine",
+            "Security_Node",
+            "Renderer",
+            "Styler"
+        ];
+
+        const agents = roles.map((role, index) => {
+            const el = document.createElement("div");
+
+            el.className = "arena-agent" + (index === 0 ? " user-agent" : "");
+
+            const dot = document.createElement("span");
+            dot.className = "arena-dot";
+
+            const label = document.createElement("span");
+            label.className = "arena-label";
+            label.textContent = role;
+
+            el.append(dot, label);
+            layer.appendChild(el);
+
+            return {
+                el,
+                role,
+                user: index === 0,
+                x: innerWidth * (0.15 + Math.random() * 0.7),
+                y: innerHeight * (0.18 + Math.random() * 0.65),
+                tx: 0,
+                ty: 0,
+                speed: 0.012 + Math.random() * 0.018,
+                nextTarget: 0,
+                trailAt: 0,
+                target: null
+            };
+        });
+
+        const pointer = {
+            x: innerWidth / 2,
+            y: innerHeight / 2
+        };
+
+        let lastTime = 0;
+        let frame = 0;
+
+        const vectors = [];
+
+        const targets = () => [
+            ...document.querySelectorAll(
+                "nav, .banner-wrapper, .content-box, .quote-container, .work-card, .skill-item, .event-content, .qualifications-box, .story-box, .contact-card"
+            )
+        ].filter(el => {
+            const r = el.getBoundingClientRect();
+            return r.width && r.height && r.bottom > 0 && r.top < innerHeight;
+        });
+
+        function chooseTarget(agent) {
+            const list = targets();
+
+            if (!list.length) {
+                agent.tx = 30 + Math.random() * (innerWidth - 60);
+                agent.ty = 80 + Math.random() * (innerHeight - 140);
+                agent.target = null;
+                return;
+            }
+
+            const el = list[Math.floor(Math.random() * list.length)];
+            const r = el.getBoundingClientRect();
+
+            agent.target = el;
+
+            agent.tx = Math.max(
+                12,
+                Math.min(innerWidth - 12, r.left + r.width * (0.2 + Math.random() * 0.6))
+            );
+
+            agent.ty = Math.max(
+                18,
+                Math.min(innerHeight - 18, r.top + r.height * (0.2 + Math.random() * 0.6))
+            );
+        }
+
+        function makeVector(a, b) {
+            const line = document.createElementNS(
+                "http://www.w3.org/2000/svg",
+                "line"
+            );
+
+            line.setAttribute("x1", a.x);
+            line.setAttribute("y1", a.y);
+            line.setAttribute("x2", b.x);
+            line.setAttribute("y2", b.y);
+            line.setAttribute("class", "arena-vector");
+
+            svg.appendChild(line);
+            vectors.push({ line, life: 60 });
+        }
+
+        function particle(x, y) {
+            const p = document.createElement("i");
+
+            p.className = "arena-particle";
+            p.style.left = x + "px";
+            p.style.top = y + "px";
+
+            layer.appendChild(p);
+
+            window.setTimeout(() => p.remove(), 700);
+        }
+
+        window.addEventListener(
+            "pointermove",
+            e => {
+                pointer.x = e.clientX;
+                pointer.y = e.clientY;
+            },
+            { passive: true }
+        );
+
+        function tick(now) {
+            const dt = Math.min(32, now - (lastTime || now));
+
+            lastTime = now;
+            frame++;
+
+            agents.forEach(agent => {
+                if (agent.user) {
+                    agent.tx = pointer.x;
+                    agent.ty = pointer.y;
+
+                    agent.x += (agent.tx - agent.x) * 0.34;
+                    agent.y += (agent.ty - agent.y) * 0.34;
+                } else {
+                    if (
+                        now > agent.nextTarget ||
+                        (agent.target && !agent.target.isConnected)
+                    ) {
+                        chooseTarget(agent);
+                        agent.nextTarget = now + 1800 + Math.random() * 2600;
+                    }
+
+                    const ease = agent.speed * (dt / 16.67);
+
+                    agent.x += (agent.tx - agent.x) * ease;
+                    agent.y += (agent.ty - agent.y) * ease;
+
+                    if (agent.target) {
+                        const r = agent.target.getBoundingClientRect();
+
+                        const near =
+                            agent.x >= r.left - 18 &&
+                            agent.x <= r.right + 18 &&
+                            agent.y >= r.top - 18 &&
+                            agent.y <= r.bottom + 18;
+
+                        agent.target.classList.toggle("arena-agent-active", near);
+                    }
+                }
+
+                agent.el.classList.add("visible");
+
+                agent.el.style.transform =
+                    `translate3d(${agent.x}px, ${agent.y}px, 0)`;
+
+                if (
+                    now - agent.trailAt > (agent.user ? 95 : 180) &&
+                    Math.random() > 0.2
+                ) {
+                    particle(agent.x + 4, agent.y + 4);
+                    agent.trailAt = now;
+                }
+            });
+
+            if (frame % 24 === 0) {
+                const a = agents[1 + Math.floor(Math.random() * 6)];
+                const b = agents[Math.floor(Math.random() * agents.length)];
+
+                if (a && b && a !== b) {
+                    makeVector(a, b);
+                }
+
+                const states = [
+                    "PARSING COMPONENTS",
+                    "CHECKING LAYOUT",
+                    "SYNCING MODULES",
+                    "SCANNING INTERFACE"
+                ];
+
+                task.textContent =
+                    "SYSTEM: " + states[Math.floor(Math.random() * states.length)];
+            }
+
+            for (let i = vectors.length - 1; i >= 0; i--) {
+                vectors[i].life--;
+
+                vectors[i].line.style.opacity =
+                    String(vectors[i].life / 60);
+
+                if (vectors[i].life <= 0) {
+                    vectors[i].line.remove();
+                    vectors.splice(i, 1);
+                }
+            }
+
+            requestAnimationFrame(tick);
+        }
+
+        document.getElementById("arena-agent-count").textContent =
+            String(agents.length).padStart(2, "0");
+
+        requestAnimationFrame(tick);
+
+        window.addEventListener(
+            "resize",
+            () => {
+                agents.forEach(a => {
+                    a.x = Math.min(innerWidth - 10, a.x);
+                    a.y = Math.min(innerHeight - 10, a.y);
+                });
+            },
+            { passive: true }
+        );
+
+        document.addEventListener("visibilitychange", () => {
+            if (document.hidden) {
+                targets().forEach(el =>
+                    el.classList.remove("arena-agent-active")
+                );
+            }
+        });
+    })();
+    </script>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init({ duration: 800, once: true });</script>
+    <script>
+        if (window.AOS) {
+            AOS.init({
+                duration: 800,
+                once: true,
+                disable: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+            });
+        }
+    </script>
 </body>
 </html>
