@@ -1,1153 +1,1523 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#080808">
-    <meta name="description" content="Md Dilshad Amir — AI Engineer building practical AI systems, intelligent automation, and scalable software.">
-    <title>Md Dilshad Amir | AI Engineer</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <style>
-        :root {
-            --bg: #080808;
-            --panel: #101010;
-            --panel-light: #151515;
-            --red: #ff3030;
-            --red-dark: #a31313;
-            --white: #f5f5f5;
-            --muted: #929292;
-            --border: rgba(255,255,255,.09);
-            --mono: "Space Mono", monospace;
-            --main: "Space Grotesk", sans-serif;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: var(--bg);
-            color: var(--white);
-            font-family: var(--main);
-            overflow-x: hidden;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 10;
-            opacity: .12;
-            background-image:
-                linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-            background-size: 45px 45px;
-        }
-
-        body::after {
-            content: "";
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 11;
-            background: radial-gradient(ellipse at center, transparent 35%, rgba(0,0,0,.65) 100%);
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        button {
-            font-family: inherit;
-        }
-
-        .container {
-            width: min(1150px, 90%);
-            margin: auto;
-        }
-
-        .mono {
-            font-family: var(--mono);
-        }
-
-        .red {
-            color: var(--red);
-        }
-
-        /* NAVIGATION */
-
-        .navbar {
-            position: relative;
-            z-index: 50;
-            width: 100%;
-            border-bottom: 1px solid var(--border);
-            background: rgba(8,8,8,.88);
-            backdrop-filter: blur(15px);
-        }
-
-        .nav-inner {
-            width: min(1250px, 92%);
-            min-height: 76px;
-            margin: auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 25px;
-        }
-
-        .logo {
-            font-size: 19px;
-            font-weight: 700;
-            letter-spacing: -1px;
-        }
-
-        .logo span {
-            color: var(--red);
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-family: var(--mono);
-            font-size: 11px;
-            color: #aaa;
-            transition: .25s;
-        }
-
-        .nav-links a:hover {
-            color: var(--red);
-        }
-
-        .nav-status {
-            font-family: var(--mono);
-            font-size: 10px;
-            color: #aaa;
-        }
-
-        .status-dot {
-            display: inline-block;
-            width: 7px;
-            height: 7px;
-            margin-right: 7px;
-            background: #35e68b;
-            border-radius: 50%;
-            box-shadow: 0 0 12px #35e68b;
-        }
-
-        /* HERO BANNER */
-
-        .banner-hero {
-            width: 100%;
-            padding: 0;
-            position: relative;
-        }
-
-        .banner-wrapper {
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .cyber-banner-frame {
-            display: block;
-            width: 100%;
-            height: 950px;
-            min-height: 650px;
-            border: none;
-            overflow: hidden;
-            background: var(--bg);
-            transition: height .2s ease;
-        }
-
-        /* GENERAL SECTIONS */
-
-        section:not(.banner-hero) {
-            padding: 100px 0;
-            position: relative;
-        }
-
-        .section-label {
-            color: var(--red);
-            font-family: var(--mono);
-            font-size: 11px;
-            letter-spacing: 3px;
-            margin-bottom: 18px;
-            text-transform: uppercase;
-        }
-
-        .section-title {
-            font-size: clamp(32px, 5vw, 52px);
-            line-height: 1.1;
-            letter-spacing: -2px;
-            margin-bottom: 25px;
-        }
-
-        .section-description {
-            color: var(--muted);
-            font-size: 15px;
-            line-height: 1.9;
-            max-width: 650px;
-        }
-
-        .section-line {
-            width: 55px;
-            height: 3px;
-            background: var(--red);
-            margin-bottom: 25px;
-            box-shadow: 0 0 15px rgba(255,48,48,.5);
-        }
-
-        /* ABOUT */
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1.1fr .9fr;
-            gap: 70px;
-            align-items: center;
-        }
-
-        .about-text p {
-            color: var(--muted);
-            line-height: 1.9;
-            font-size: 15px;
-            margin-bottom: 17px;
-        }
-
-        .about-card {
-            padding: 35px;
-            background: linear-gradient(145deg, #151515, #0b0b0b);
-            border: 1px solid var(--border);
-            position: relative;
-        }
-
-        .about-card::before {
-            content: "";
-            position: absolute;
-            left: -1px;
-            top: 0;
-            width: 3px;
-            height: 65px;
-            background: var(--red);
-        }
-
-        .about-card h3 {
-            font-size: 20px;
-            margin-bottom: 20px;
-        }
-
-        .about-item {
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
-            padding: 14px 0;
-            border-bottom: 1px solid var(--border);
-            font-size: 13px;
-        }
-
-        .about-item span:first-child {
-            color: var(--muted);
-        }
-
-        .about-item span:last-child {
-            text-align: right;
-        }
-
-        /* SKILLS */
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
-            margin-top: 45px;
-        }
-
-        .skill-card {
-            padding: 28px;
-            background: var(--panel);
-            border: 1px solid var(--border);
-            transition: .3s;
-        }
-
-        .skill-card:hover {
-            border-color: rgba(255,48,48,.6);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 35px rgba(255,48,48,.06);
-        }
-
-        .skill-number {
-            font-family: var(--mono);
-            color: var(--red);
-            font-size: 12px;
-            margin-bottom: 22px;
-        }
-
-        .skill-card h3 {
-            font-size: 19px;
-            margin-bottom: 13px;
-        }
-
-        .skill-card p {
-            color: var(--muted);
-            font-size: 13px;
-            line-height: 1.8;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 20px;
-        }
-
-        .skill-tags span {
-            padding: 7px 10px;
-            border: 1px solid var(--border);
-            color: #bbb;
-            font-family: var(--mono);
-            font-size: 10px;
-        }
-
-        /* PROJECTS */
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 22px;
-            margin-top: 45px;
-        }
-
-        .project-card {
-            background: var(--panel);
-            border: 1px solid var(--border);
-            overflow: hidden;
-            transition: .3s;
-        }
-
-        .project-card:hover {
-            border-color: var(--red-dark);
-            transform: translateY(-5px);
-        }
-
-        .project-top {
-            min-height: 175px;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            background:
-                radial-gradient(circle at 80% 20%, rgba(255,48,48,.13), transparent 40%),
-                #111;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .project-index {
-            font-family: var(--mono);
-            color: var(--red);
-            font-size: 11px;
-        }
-
-        .project-symbol {
-            font-size: 40px;
-            font-weight: 700;
-            color: rgba(255,255,255,.12);
-            align-self: flex-end;
-        }
-
-        .project-content {
-            padding: 25px;
-        }
-
-        .project-content h3 {
-            font-size: 21px;
-            margin-bottom: 12px;
-        }
-
-        .project-content p {
-            color: var(--muted);
-            font-size: 13px;
-            line-height: 1.8;
-        }
-
-        .project-tech {
-            margin-top: 20px;
-            color: #aaa;
-            font-family: var(--mono);
-            font-size: 10px;
-        }
-
-        .project-link {
-            display: inline-block;
-            margin-top: 20px;
-            color: var(--red);
-            font-family: var(--mono);
-            font-size: 11px;
-        }
-
-        .project-link:hover {
-            color: white;
-        }
-
-        /* APPROACH */
-
-        .approach-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .approach-card {
-            padding: 28px;
-            border: 1px solid var(--border);
-            background: #0e0e0e;
-        }
-
-        .approach-card h3 {
-            margin: 17px 0 12px;
-            font-size: 18px;
-        }
-
-        .approach-card p {
-            color: var(--muted);
-            font-size: 13px;
-            line-height: 1.8;
-        }
-
-        .approach-icon {
-            font-size: 24px;
-            color: var(--red);
-        }
-
-        /* CONTACT */
-
-        .contact-box {
-            padding: 60px 35px;
-            text-align: center;
-            border: 1px solid var(--border);
-            background:
-                radial-gradient(ellipse at center, rgba(255,48,48,.09), transparent 65%),
-                #101010;
-        }
-
-        .contact-box .section-title {
-            margin-bottom: 18px;
-        }
-
-        .contact-box p {
-            color: var(--muted);
-            line-height: 1.8;
-            font-size: 14px;
-            max-width: 550px;
-            margin: 0 auto 30px;
-        }
-
-        .contact-button {
-            display: inline-block;
-            padding: 14px 25px;
-            background: var(--red);
-            color: white;
-            font-family: var(--mono);
-            font-size: 11px;
-            border: 1px solid var(--red);
-            transition: .3s;
-        }
-
-        .contact-button:hover {
-            background: transparent;
-            color: var(--red);
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 25px;
-            margin-top: 35px;
-        }
-
-        .social-links a {
-            font-family: var(--mono);
-            font-size: 11px;
-            color: #aaa;
-            transition: .3s;
-        }
-
-        .social-links a:hover {
-            color: var(--red);
-        }
-
-        /* FOOTER */
-
-        footer {
-            padding: 28px 0;
-            border-top: 1px solid var(--border);
-            position: relative;
-            z-index: 15;
-        }
-
-        .footer-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        footer p {
-            color: #777;
-            font-family: var(--mono);
-            font-size: 10px;
-        }
-
-        /* PARTICLES */
-
-        #particles {
-            position: fixed;
-            inset: 0;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        .page-content {
-            position: relative;
-            z-index: 12;
-        }
-
-        /* RESPONSIVE */
-
-        @media(max-width: 850px) {
-            .nav-links {
-                gap: 15px;
-            }
-
-            .nav-links a {
-                font-size: 10px;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 35px;
-            }
-
-            .skills-grid,
-            .approach-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media(max-width: 600px) {
-            .nav-inner {
-                min-height: 65px;
-                flex-wrap: wrap;
-                padding: 14px 0;
-            }
-
-            .nav-links {
-                width: 100%;
-                justify-content: space-between;
-                gap: 8px;
-                order: 3;
-            }
-
-            .nav-status {
-                font-size: 9px;
-            }
-
-            .cyber-banner-frame {
-                min-height: 600px;
-                height: 900px;
-            }
-
-            section:not(.banner-hero) {
-                padding: 70px 0;
-            }
-
-            .skills-grid,
-            .projects-grid,
-            .approach-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                letter-spacing: -1px;
-            }
-
-            .about-card {
-                padding: 25px;
-            }
-
-            .contact-box {
-                padding: 45px 20px;
-            }
-
-            .footer-inner {
-                justify-content: center;
-                text-align: center;
-            }
-        }
-
-        @media(prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                scroll-behavior: auto !important;
-                animation-duration: .01ms !important;
-                transition-duration: .01ms !important;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+<meta name="description" content="Md Dilshad Amir — AI Engineer building practical AI applications, intelligent automation and software products.">
+<title>Md Dilshad Amir | AI Engineer & Software Engineer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg: #080808;
+    --surface: #101010;
+    --surface2: #151515;
+    --red: #ff3434;
+    --red-soft: rgba(255,52,52,.12);
+    --white: #f5f5f5;
+    --muted: #929292;
+    --border: rgba(255,255,255,.09);
+    --mono: "DM Mono", monospace;
+    --font: "Space Grotesk", sans-serif;
+    --container: 1160px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: var(--font);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font: inherit;
+}
+
+::selection {
+    background: var(--red);
+    color: white;
+}
+
+.container {
+    width: min(var(--container), 90%);
+    margin: auto;
+}
+
+.red {
+    color: var(--red);
+}
+
+.mono {
+    font-family: var(--mono);
+}
+
+/* BACKGROUND */
+
+.background-grid {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: .15;
+    background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size: 48px 48px;
+}
+
+#particles {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.site-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* SCROLL PROGRESS */
+
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--red);
+    z-index: 1000;
+    box-shadow: 0 0 12px var(--red);
+}
+
+/* NAVIGATION */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(8,8,8,.88);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+    width: min(1250px, 92%);
+    min-height: 76px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.logo {
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--red);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #aaa;
+    font-family: var(--mono);
+    font-size: 10px;
+    transition: .25s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--red);
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #aaa;
+    font-family: var(--mono);
+    font-size: 10px;
+}
+
+.online-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #36e68b;
+    box-shadow: 0 0 10px #36e68b;
+}
+
+/* BANNER — FIXED HEIGHT, NO RESIZE LOOP */
+
+.banner-section {
+    width: 100%;
+    overflow: hidden;
+    background: #080808;
+    border-bottom: 1px solid var(--border);
+}
+
+.banner-frame {
+    display: block;
+    width: 100%;
+    height: 950px;
+    border: 0;
+    background: #080808;
+    overflow: hidden;
+}
+
+/* GENERAL SECTIONS */
+
+section:not(.banner-section) {
+    padding: 105px 0;
+    position: relative;
+}
+
+.section-heading {
+    margin-bottom: 45px;
+}
+
+.section-label {
+    color: var(--red);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 17px;
+}
+
+.section-line {
+    width: 48px;
+    height: 3px;
+    background: var(--red);
+    box-shadow: 0 0 12px rgba(255,52,52,.5);
+    margin-bottom: 25px;
+}
+
+.section-title {
+    font-size: clamp(34px, 5vw, 55px);
+    line-height: 1.08;
+    letter-spacing: -2.5px;
+    margin-bottom: 20px;
+}
+
+.section-description {
+    max-width: 680px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+/* INTRO */
+
+.intro-strip {
+    padding: 25px 0;
+    border-bottom: 1px solid var(--border);
+    border-top: 1px solid var(--border);
+    background: rgba(255,255,255,.015);
+}
+
+.intro-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.intro-inner p {
+    color: #aaa;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.intro-inner strong {
+    color: var(--red);
+    font-weight: 400;
+}
+
+/* STORY / ABOUT */
+
+.story-layout {
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: 65px;
+    align-items: start;
+}
+
+.story-copy p {
+    color: #aaa;
+    font-size: 15px;
+    line-height: 2;
+    margin-bottom: 20px;
+}
+
+.story-copy p strong {
+    color: white;
+    font-weight: 600;
+}
+
+.story-highlight {
+    border-left: 2px solid var(--red);
+    padding: 18px 22px;
+    background: linear-gradient(90deg, var(--red-soft), transparent);
+    color: #ddd;
+    line-height: 1.8;
+    margin-top: 30px;
+}
+
+.profile-panel {
+    padding: 30px;
+    border: 1px solid var(--border);
+    background: linear-gradient(145deg, #151515, #0c0c0c);
+    position: relative;
+}
+
+.profile-panel::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--red);
+}
+
+.profile-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.profile-top h3 {
+    font-size: 18px;
+}
+
+.profile-top span {
+    font-family: var(--mono);
+    color: var(--red);
+    font-size: 10px;
+}
+
+.profile-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 12px;
+}
+
+.profile-row span:first-child {
+    color: var(--muted);
+}
+
+.profile-row span:last-child {
+    text-align: right;
+}
+
+/* JOURNEY TIMELINE */
+
+.timeline {
+    position: relative;
+    margin-top: 50px;
+    max-width: 850px;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    bottom: 10px;
+    width: 1px;
+    background: linear-gradient(var(--red), rgba(255,52,52,.05));
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 40px;
+    padding-bottom: 42px;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 2px;
+    top: 5px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    border: 2px solid var(--red);
+    background: var(--bg);
+    box-shadow: 0 0 12px rgba(255,52,52,.35);
+}
+
+.timeline-date {
+    color: var(--red);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.timeline-item h3 {
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.timeline-item p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+    max-width: 680px;
+}
+
+/* SKILLS */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 17px;
+}
+
+.skill-card {
+    padding: 28px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    transition: .3s;
+}
+
+.skill-card:hover {
+    border-color: rgba(255,52,52,.5);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,.3);
+}
+
+.skill-number {
+    color: var(--red);
+    font-family: var(--mono);
+    font-size: 10px;
+    margin-bottom: 25px;
+}
+
+.skill-card h3 {
+    font-size: 19px;
+    margin-bottom: 12px;
+}
+
+.skill-card p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 22px;
+}
+
+.tags span {
+    border: 1px solid var(--border);
+    padding: 7px 10px;
+    color: #bbb;
+    font-family: var(--mono);
+    font-size: 9px;
+}
+
+/* PROJECTS */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.project-card {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    transition: .3s;
+    overflow: hidden;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255,52,52,.5);
+}
+
+.project-visual {
+    min-height: 175px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background:
+        radial-gradient(circle at 80% 20%, rgba(255,52,52,.18), transparent 45%),
+        linear-gradient(135deg, #171717, #0c0c0c);
+    border-bottom: 1px solid var(--border);
+}
+
+.project-code {
+    color: var(--red);
+    font-family: var(--mono);
+    font-size: 10px;
+}
+
+.project-symbol {
+    text-align: right;
+    color: rgba(255,255,255,.14);
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: -3px;
+}
+
+.project-body {
+    padding: 26px;
+}
+
+.project-body h3 {
+    font-size: 21px;
+    margin-bottom: 12px;
+}
+
+.project-body p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.project-stack {
+    color: #aaa;
+    font-family: var(--mono);
+    font-size: 9px;
+    margin-top: 20px;
+    line-height: 1.8;
+}
+
+.project-link {
+    display: inline-block;
+    color: var(--red);
+    font-family: var(--mono);
+    font-size: 10px;
+    margin-top: 20px;
+    transition: .2s;
+}
+
+.project-link:hover {
+    color: white;
+}
+
+/* PHILOSOPHY */
+
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.philosophy-card {
+    padding: 28px;
+    background: #101010;
+    border: 1px solid var(--border);
+}
+
+.philosophy-icon {
+    color: var(--red);
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.philosophy-card h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.philosophy-card p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+/* FUTURE DIRECTION */
+
+.future-panel {
+    padding: 45px;
+    border: 1px solid rgba(255,52,52,.25);
+    background:
+        radial-gradient(ellipse at 90% 10%, rgba(255,52,52,.1), transparent 45%),
+        #101010;
+}
+
+.future-panel h3 {
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+.future-panel p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.9;
+    max-width: 760px;
+}
+
+.future-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.future-tags span {
+    color: #ddd;
+    background: rgba(255,255,255,.04);
+    border: 1px solid var(--border);
+    padding: 10px 13px;
+    font-family: var(--mono);
+    font-size: 10px;
+}
+
+/* CONTACT */
+
+.contact-panel {
+    padding: 65px 30px;
+    text-align: center;
+    border: 1px solid var(--border);
+    background:
+        radial-gradient(ellipse at center, rgba(255,52,52,.12), transparent 65%),
+        #101010;
+}
+
+.contact-panel h2 {
+    font-size: clamp(35px, 5vw, 54px);
+    line-height: 1.1;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+}
+
+.contact-panel p {
+    max-width: 550px;
+    margin: 0 auto 30px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.contact-button {
+    display: inline-block;
+    background: var(--red);
+    border: 1px solid var(--red);
+    color: white;
+    padding: 15px 24px;
+    font-family: var(--mono);
+    font-size: 10px;
+    transition: .25s;
+}
+
+.contact-button:hover {
+    background: transparent;
+    color: var(--red);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 35px;
+}
+
+.social-links a {
+    color: #aaa;
+    font-family: var(--mono);
+    font-size: 10px;
+    transition: .2s;
+}
+
+.social-links a:hover {
+    color: var(--red);
+}
+
+/* FOOTER */
+
+footer {
+    border-top: 1px solid var(--border);
+    padding: 28px 0;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.footer-inner p {
+    color: #777;
+    font-family: var(--mono);
+    font-size: 9px;
+}
+
+/* REVEAL ANIMATIONS */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* MOBILE */
+
+.menu-button {
+    display: none;
+    color: white;
+    background: transparent;
+    border: 1px solid var(--border);
+    padding: 8px 11px;
+    cursor: pointer;
+    font-family: var(--mono);
+    font-size: 11px;
+}
+
+@media(max-width: 850px) {
+    .story-layout {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .skills-grid,
+    .philosophy-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 650px) {
+    .nav-inner {
+        min-height: 68px;
+        flex-wrap: wrap;
+        padding: 12px 0;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    .nav-right {
+        display: none;
+    }
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 8px 0 12px;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: 13px 0;
+        border-top: 1px solid var(--border);
+    }
+
+    /* Stable banner height: no JS resizing */
+    .banner-frame {
+        height: 1000px;
+    }
+
+    section:not(.banner-section) {
+        padding: 75px 0;
+    }
+
+    .skills-grid,
+    .projects-grid,
+    .philosophy-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        letter-spacing: -1.5px;
+    }
+
+    .future-panel {
+        padding: 30px 22px;
+    }
+
+    .contact-panel {
+        padding: 45px 20px;
+    }
+
+    .footer-inner {
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <canvas id="particles"></canvas>
+<div class="progress-bar" id="progressBar"></div>
+<div class="background-grid"></div>
+<canvas id="particles"></canvas>
 
-    <!-- NAVIGATION -->
-    <header class="navbar">
-        <div class="nav-inner">
-            <a href="#home" class="logo">DILSHAD<span>.</span></a>
+<div class="site-content">
 
-            <ul class="nav-links">
-                <li><a href="#about">ABOUT</a></li>
-                <li><a href="#skills">SKILLS</a></li>
-                <li><a href="#projects">PROJECTS</a></li>
-                <li><a href="#contact">CONTACT</a></li>
-            </ul>
+<!-- NAVIGATION -->
+<header class="navbar">
+    <div class="nav-inner">
 
-            <div class="nav-status">
-                <span class="status-dot"></span> BUILDING
-            </div>
+        <a href="#home" class="logo">DILSHAD<span>.</span></a>
+
+        <button class="menu-button" id="menuButton" aria-label="Toggle navigation">
+            MENU ☰
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#story">MY STORY</a></li>
+            <li><a href="#skills">SKILLS</a></li>
+            <li><a href="#projects">PROJECTS</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+
+        <div class="nav-right">
+            <span class="online-dot"></span>
+            BUILDING & LEARNING
         </div>
-    </header>
 
-    <main class="page-content">
+    </div>
+</header>
 
-        <!-- CYBER BANNER -->
-        <section id="home" class="banner-hero">
-            <div class="banner-wrapper">
-                <iframe
-                    id="cyberBanner"
-                    src="ai_engineer_cyber_banner.html"
-                    title="AI Engineer Cyber Banner"
-                    class="cyber-banner-frame"
-                    scrolling="no"
-                    loading="eager">
-                </iframe>
-            </div>
-        </section>
+<main>
 
-        <!-- ABOUT -->
-        <section id="about">
-            <div class="container">
-                <div class="about-grid">
+<!-- HERO BANNER -->
+<section class="banner-section" id="home">
+    <iframe
+        class="banner-frame"
+        src="ai_engineer_cyber_banner.html"
+        title="Md Dilshad Amir — AI Engineer"
+        scrolling="no"
+        loading="eager">
+    </iframe>
+</section>
 
-                    <div class="about-text" data-aos="fade-up">
-                        <div class="section-label">// 01 — ABOUT ME</div>
-                        <div class="section-line"></div>
+<!-- INTRO STRIP -->
+<div class="intro-strip">
+    <div class="container intro-inner">
+        <p><strong>AI ENGINEER</strong> / SOFTWARE ENGINEER</p>
+        <p>PYTHON · BACKEND · LLM APPLICATIONS</p>
+        <p>BUILDING <strong>REAL-WORLD SOFTWARE</strong></p>
+    </div>
+</div>
 
-                        <h2 class="section-title">
-                            Building technology<br>
-                            with <span class="red">purpose.</span>
-                        </h2>
+<!-- ABOUT -->
+<section id="about">
+    <div class="container">
 
-                        <p>
-                            I'm Md Dilshad Amir, an AI and Software Engineer
-                            focused on building practical software,
-                            AI-powered applications, and intelligent
-                            automation systems.
-                        </p>
+        <div class="story-layout">
 
-                        <p>
-                            I work with Python, FastAPI, Streamlit, SQL,
-                            and modern AI technologies. My focus is on
-                            turning real-world problems into useful
-                            software products.
-                        </p>
+            <div class="story-copy reveal">
+                <div class="section-label">// 01 — ABOUT ME</div>
+                <div class="section-line"></div>
 
-                        <p>
-                            I'm continuously learning, building projects,
-                            and exploring how AI agents can make software
-                            more capable and accessible.
-                        </p>
-                    </div>
+                <h2 class="section-title">
+                    I build software<br>
+                    with <span class="red">purpose.</span>
+                </h2>
 
-                    <div class="about-card" data-aos="fade-left">
-                        <h3>Developer Profile</h3>
+                <p>
+                    I'm <strong>Md Dilshad Amir</strong>, an aspiring
+                    AI and Software Engineer focused on building
+                    practical applications, intelligent automation,
+                    and useful digital products.
+                </p>
 
-                        <div class="about-item">
-                            <span>Name</span>
-                            <span>Md Dilshad Amir</span>
-                        </div>
+                <p>
+                    My work combines Python development, backend
+                    engineering, web technologies, and AI-powered
+                    applications. I enjoy turning ideas and real
+                    problems into working software.
+                </p>
 
-                        <div class="about-item">
-                            <span>Focus</span>
-                            <span>AI Engineering</span>
-                        </div>
+                <p>
+                    I'm currently strengthening my foundations in
+                    APIs, databases, FastAPI, LangGraph, and
+                    retrieval-augmented generation while building
+                    projects and learning through implementation.
+                </p>
 
-                        <div class="about-item">
-                            <span>Languages</span>
-                            <span>Python, SQL</span>
-                        </div>
-
-                        <div class="about-item">
-                            <span>Frameworks</span>
-                            <span>FastAPI, Streamlit</span>
-                        </div>
-
-                        <div class="about-item">
-                            <span>Exploring</span>
-                            <span>AI Agents, RAG</span>
-                        </div>
-
-                        <div class="about-item">
-                            <span>Approach</span>
-                            <span>Build. Learn. Improve.</span>
-                        </div>
-                    </div>
-
+                <div class="story-highlight">
+                    My goal is not just to write code. I want to
+                    understand problems, engineer useful solutions,
+                    and eventually build software products and
+                    AI-powered businesses.
                 </div>
             </div>
-        </section>
 
-        <!-- SKILLS -->
-        <section id="skills">
-            <div class="container">
-
-                <div data-aos="fade-up">
-                    <div class="section-label">// 02 — TECHNOLOGIES</div>
-                    <div class="section-line"></div>
-                    <h2 class="section-title">
-                        Tools I <span class="red">work with.</span>
-                    </h2>
-                    <p class="section-description">
-                        Technologies I use to develop applications,
-                        build backend systems, and explore AI-powered
-                        solutions.
-                    </p>
+            <div class="profile-panel reveal">
+                <div class="profile-top">
+                    <h3>Developer Profile</h3>
+                    <span>PROFILE_001</span>
                 </div>
 
-                <div class="skills-grid">
+                <div class="profile-row">
+                    <span>Name</span>
+                    <span>Md Dilshad Amir</span>
+                </div>
 
-                    <div class="skill-card" data-aos="fade-up">
-                        <div class="skill-number">01 / DEVELOPMENT</div>
-                        <h3>Programming</h3>
-                        <p>Writing application logic and building software.</p>
-                        <div class="skill-tags">
-                            <span>Python</span>
-                            <span>SQL</span>
-                            <span>HTML</span>
-                            <span>CSS</span>
-                        </div>
-                    </div>
+                <div class="profile-row">
+                    <span>Primary Focus</span>
+                    <span>AI Engineering</span>
+                </div>
 
-                    <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="skill-number">02 / BACKEND</div>
-                        <h3>Backend Engineering</h3>
-                        <p>Developing APIs, application backends, and data workflows.</p>
-                        <div class="skill-tags">
-                            <span>FastAPI</span>
-                            <span>REST APIs</span>
-                            <span>SQLite</span>
-                            <span>Streamlit</span>
-                        </div>
-                    </div>
+                <div class="profile-row">
+                    <span>Programming</span>
+                    <span>Python, SQL</span>
+                </div>
 
-                    <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="skill-number">03 / ARTIFICIAL INTELLIGENCE</div>
-                        <h3>AI Engineering</h3>
-                        <p>Exploring LLM-powered applications and intelligent automation.</p>
-                        <div class="skill-tags">
-                            <span>LLM APIs</span>
-                            <span>LangChain</span>
-                            <span>LangGraph</span>
-                            <span>RAG</span>
-                        </div>
-                    </div>
+                <div class="profile-row">
+                    <span>Backend</span>
+                    <span>FastAPI, APIs</span>
+                </div>
 
+                <div class="profile-row">
+                    <span>Applications</span>
+                    <span>Streamlit, Web</span>
+                </div>
+
+                <div class="profile-row">
+                    <span>Exploring</span>
+                    <span>LangGraph, RAG</span>
+                </div>
+
+                <div class="profile-row">
+                    <span>Long-term Goal</span>
+                    <span>AI Products & SaaS</span>
                 </div>
             </div>
-        </section>
 
-        <!-- PROJECTS -->
-        <section id="projects">
-            <div class="container">
+        </div>
+    </div>
+</section>
 
-                <div data-aos="fade-up">
-                    <div class="section-label">// 03 — SELECTED WORK</div>
-                    <div class="section-line"></div>
-                    <h2 class="section-title">
-                        Things I've <span class="red">built.</span>
-                    </h2>
-                    <p class="section-description">
-                        A selection of software and AI projects focused
-                        on practical use cases.
-                    </p>
-                </div>
+<!-- MY STORY -->
+<section id="story">
+    <div class="container">
 
-                <div class="projects-grid">
+        <div class="section-heading reveal">
+            <div class="section-label">// 02 — THE JOURNEY</div>
+            <div class="section-line"></div>
 
-                    <article class="project-card" data-aos="fade-up">
-                        <div class="project-top">
-                            <div class="project-index">PROJECT_001</div>
-                            <div class="project-symbol">AI</div>
-                        </div>
+            <h2 class="section-title">
+                From learning Python<br>
+                to <span class="red">building AI.</span>
+            </h2>
 
-                        <div class="project-content">
-                            <h3>Clinic AI Assistant</h3>
-                            <p>
-                                An AI-powered chatbot concept designed
-                                to help clinics handle common patient
-                                questions and streamline communication.
-                            </p>
-                            <div class="project-tech">
-                                PYTHON / STREAMLIT / LLM APIs
-                            </div>
-                            <a class="project-link" href="https://github.com/" target="_blank" rel="noopener noreferrer">
-                                VIEW PROJECT ↗
-                            </a>
-                        </div>
-                    </article>
+            <p class="section-description">
+                Every project starts somewhere. This is my journey
+                of learning, experimenting, building, and moving
+                toward a bigger vision.
+            </p>
+        </div>
 
-                    <article class="project-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="project-top">
-                            <div class="project-index">PROJECT_002</div>
-                            <div class="project-symbol">OS</div>
-                        </div>
+        <div class="timeline">
 
-                        <div class="project-content">
-                            <h3>Apex Gym OS</h3>
-                            <p>
-                                A gym management application concept
-                                for managing members, memberships,
-                                payments, and daily operations.
-                            </p>
-                            <div class="project-tech">
-                                PYTHON / STREAMLIT / SQLITE
-                            </div>
-                            <a class="project-link" href="https://github.com/" target="_blank" rel="noopener noreferrer">
-                                VIEW PROJECT ↗
-                            </a>
-                        </div>
-                    </article>
+            <div class="timeline-item reveal">
+                <span class="timeline-dot"></span>
+                <div class="timeline-date">THE BEGINNING</div>
+                <h3>Started with Python</h3>
+                <p>
+                    I began my software development journey by
+                    learning Python and understanding the
+                    fundamentals of programming, problem-solving,
+                    and writing code.
+                </p>
+            </div>
 
-                    <article class="project-card" data-aos="fade-up">
-                        <div class="project-top">
-                            <div class="project-index">PROJECT_003</div>
-                            <div class="project-symbol">DOC</div>
-                        </div>
+            <div class="timeline-item reveal">
+                <span class="timeline-dot"></span>
+                <div class="timeline-date">FOUNDATIONS</div>
+                <h3>Completed Harvard CS50P</h3>
+                <p>
+                    I completed Harvard's CS50P Python course
+                    in approximately one month. I also created
+                    a detailed 150-page study book to organize
+                    what I learned and strengthen my understanding.
+                </p>
+            </div>
 
-                        <div class="project-content">
-                            <h3>Smart Document Insight</h3>
-                            <p>
-                                A document analysis application
-                                designed to extract useful information
-                                and make document interaction easier.
-                            </p>
-                            <div class="project-tech">
-                                PYTHON / STREAMLIT / AI APIs
-                            </div>
-                            <a class="project-link" href="https://github.com/" target="_blank" rel="noopener noreferrer">
-                                VIEW PROJECT ↗
-                            </a>
-                        </div>
-                    </article>
+            <div class="timeline-item reveal">
+                <span class="timeline-dot"></span>
+                <div class="timeline-date">BUILDING PHASE</div>
+                <h3>Started creating real applications</h3>
+                <p>
+                    I moved beyond tutorials and started building
+                    websites, Streamlit applications, chatbots,
+                    clinic tools, document analysis tools, and
+                    business-focused software.
+                </p>
+            </div>
 
-                    <article class="project-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="project-top">
-                            <div class="project-index">PROJECT_004</div>
-                            <div class="project-symbol">WEB</div>
-                        </div>
+            <div class="timeline-item reveal">
+                <span class="timeline-dot"></span>
+                <div class="timeline-date">ENGINEERING PHASE</div>
+                <h3>Exploring backend and AI systems</h3>
+                <p>
+                    My focus expanded toward FastAPI, SQL,
+                    APIs, LLM applications, LangChain,
+                    LangGraph, and retrieval-augmented generation.
+                    I'm learning these technologies by applying
+                    them to practical projects.
+                </p>
+            </div>
 
-                        <div class="project-content">
-                            <h3>Business Websites</h3>
-                            <p>
-                                Responsive websites built to help
-                                businesses establish their online
-                                presence and generate inquiries.
-                            </p>
-                            <div class="project-tech">
-                                HTML / CSS / JAVASCRIPT
-                            </div>
-                            <a class="project-link" href="https://github.com/" target="_blank" rel="noopener noreferrer">
-                                VIEW PROJECT ↗
-                            </a>
-                        </div>
-                    </article>
+            <div class="timeline-item reveal">
+                <span class="timeline-dot"></span>
+                <div class="timeline-date">THE LONG-TERM VISION</div>
+                <h3>Building intelligent products</h3>
+                <p>
+                    I want to build AI agents, useful SaaS
+                    products, and software systems that solve
+                    real business problems. This is the direction
+                    I'm working toward, one project at a time.
+                </p>
+            </div>
 
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <div class="container">
+
+        <div class="section-heading reveal">
+            <div class="section-label">// 03 — TECHNOLOGY STACK</div>
+            <div class="section-line"></div>
+
+            <h2 class="section-title">
+                Technologies I <span class="red">work with.</span>
+            </h2>
+
+            <p class="section-description">
+                My current toolkit for building applications,
+                backend systems, and AI-powered software.
+                I'm continuously expanding these skills.
+            </p>
+        </div>
+
+        <div class="skills-grid">
+
+            <div class="skill-card reveal">
+                <div class="skill-number">01 / PROGRAMMING</div>
+                <h3>Core Development</h3>
+                <p>
+                    Programming fundamentals and the technologies
+                    used to create software applications.
+                </p>
+                <div class="tags">
+                    <span>Python</span>
+                    <span>SQL</span>
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
                 </div>
             </div>
-        </section>
 
-        <!-- APPROACH -->
-        <section id="approach">
-            <div class="container">
-
-                <div data-aos="fade-up">
-                    <div class="section-label">// 04 — MY APPROACH</div>
-                    <div class="section-line"></div>
-                    <h2 class="section-title">
-                        Learn. Build. <span class="red">Repeat.</span>
-                    </h2>
-                </div>
-
-                <div class="approach-grid">
-
-                    <div class="approach-card" data-aos="fade-up">
-                        <div class="approach-icon">⌘</div>
-                        <h3>Understand</h3>
-                        <p>
-                            Start with the problem, understand the
-                            requirements, and identify what actually
-                            needs to be built.
-                        </p>
-                    </div>
-
-                    <div class="approach-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="approach-icon">⚡</div>
-                        <h3>Engineer</h3>
-                        <p>
-                            Use suitable technologies to develop
-                            practical solutions with a focus on
-                            usability and functionality.
-                        </p>
-                    </div>
-
-                    <div class="approach-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="approach-icon">↗</div>
-                        <h3>Improve</h3>
-                        <p>
-                            Test, learn from feedback, improve
-                            existing work, and keep building
-                            better systems.
-                        </p>
-                    </div>
-
+            <div class="skill-card reveal">
+                <div class="skill-number">02 / BACKEND</div>
+                <h3>Backend Engineering</h3>
+                <p>
+                    Learning to develop APIs, connect databases,
+                    and structure reliable application backends.
+                </p>
+                <div class="tags">
+                    <span>FastAPI</span>
+                    <span>REST APIs</span>
+                    <span>SQLite</span>
+                    <span>Streamlit</span>
                 </div>
             </div>
-        </section>
 
-        <!-- CONTACT -->
-        <section id="contact">
-            <div class="container">
-                <div class="contact-box" data-aos="zoom-in">
+            <div class="skill-card reveal">
+                <div class="skill-number">03 / ARTIFICIAL INTELLIGENCE</div>
+                <h3>AI Engineering</h3>
+                <p>
+                    Building and exploring applications powered
+                    by large language models and AI workflows.
+                </p>
+                <div class="tags">
+                    <span>LLM APIs</span>
+                    <span>Prompt Engineering</span>
+                    <span>LangChain</span>
+                    <span>LangGraph</span>
+                    <span>RAG</span>
+                </div>
+            </div>
 
-                    <div class="section-label">// 05 — GET IN TOUCH</div>
+        </div>
+    </div>
+</section>
 
-                    <h2 class="section-title">
-                        Let's build something<br>
-                        <span class="red">meaningful.</span>
-                    </h2>
+<!-- PROJECTS -->
+<section id="projects">
+    <div class="container">
 
+        <div class="section-heading reveal">
+            <div class="section-label">// 04 — SELECTED PROJECTS</div>
+            <div class="section-line"></div>
+
+            <h2 class="section-title">
+                Ideas turned into <span class="red">software.</span>
+            </h2>
+
+            <p class="section-description">
+                Projects that represent my learning, experimentation,
+                and interest in solving practical problems.
+            </p>
+        </div>
+
+        <div class="projects-grid">
+
+            <article class="project-card reveal">
+                <div class="project-visual">
+                    <span class="project-code">PROJECT_001 / HEALTHCARE</span>
+                    <span class="project-symbol">AI+</span>
+                </div>
+                <div class="project-body">
+                    <h3>Clinic AI Assistant</h3>
                     <p>
-                        Interested in software development,
-                        AI applications, automation, or collaboration?
-                        Feel free to connect.
+                        An AI chatbot concept designed to help
+                        clinics respond to common patient questions
+                        and improve everyday communication.
                     </p>
-
-                    <a href="mailto:mddilshadamir@gmail.com" class="contact-button">
-                        START A CONVERSATION ↗
-                    </a>
-
-                    <div class="social-links">
-                        <a href="https://linkedin.com/in/md-dilshad-amir-4bb505401/" target="_blank" rel="noopener noreferrer">LINKEDIN ↗</a>
-                        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GITHUB ↗</a>
-                        <a href="https://x.com/" target="_blank" rel="noopener noreferrer">X ↗</a>
-                        <a href="https://www.instagram.com/mddilshadamirai/" target="_blank" rel="noopener noreferrer">INSTAGRAM ↗</a>
-                        <a href="https://www.youtube.com/@MdDilshadAmir" target="_blank" rel="noopener noreferrer">YOUTUBE ↗</a>
+                    <div class="project-stack">
+                        PYTHON · STREAMLIT · LLM APIs
                     </div>
-
+                    <a class="project-link" href="https://github.com/mddilshadamirai" target="_blank" rel="noopener noreferrer">
+                        EXPLORE PROJECTS ↗
+                    </a>
                 </div>
-            </div>
-        </section>
+            </article>
 
-    </main>
+            <article class="project-card reveal">
+                <div class="project-visual">
+                    <span class="project-code">PROJECT_002 / BUSINESS SOFTWARE</span>
+                    <span class="project-symbol">OS</span>
+                </div>
+                <div class="project-body">
+                    <h3>Apex Gym OS</h3>
+                    <p>
+                        A gym management application designed
+                        around member records, membership tracking,
+                        payments, renewals, and daily operations.
+                    </p>
+                    <div class="project-stack">
+                        PYTHON · STREAMLIT · SQLITE
+                    </div>
+                    <a class="project-link" href="https://github.com/mddilshadamirai" target="_blank" rel="noopener noreferrer">
+                        EXPLORE PROJECTS ↗
+                    </a>
+                </div>
+            </article>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="container footer-inner">
-            <p>© <span id="year"></span> MD DILSHAD AMIR</p>
-            <p>DESIGNED & BUILT WITH PURPOSE.</p>
-            <p class="red">AI ENGINEER / SOFTWARE ENGINEER</p>
+            <article class="project-card reveal">
+                <div class="project-visual">
+                    <span class="project-code">PROJECT_003 / DOCUMENT AI</span>
+                    <span class="project-symbol">DOC</span>
+                </div>
+                <div class="project-body">
+                    <h3>Smart Document Insight Pro</h3>
+                    <p>
+                        A document analysis application exploring
+                        how AI can help users understand and extract
+                        useful information from documents.
+                    </p>
+                    <div class="project-stack">
+                        PYTHON · STREAMLIT · AI APIs
+                    </div>
+                    <a class="project-link" href="https://github.com/mddilshadamirai" target="_blank" rel="noopener noreferrer">
+                        EXPLORE PROJECTS ↗
+                    </a>
+                </div>
+            </article>
+
+            <article class="project-card reveal">
+                <div class="project-visual">
+                    <span class="project-code">PROJECT_004 / WEB DEVELOPMENT</span>
+                    <span class="project-symbol">WEB</span>
+                </div>
+                <div class="project-body">
+                    <h3>Business Websites</h3>
+                    <p>
+                        Responsive websites created to help
+                        businesses establish their digital presence
+                        and make it easier for customers to connect.
+                    </p>
+                    <div class="project-stack">
+                        HTML · CSS · JAVASCRIPT
+                    </div>
+                    <a class="project-link" href="https://github.com/mddilshadamirai" target="_blank" rel="noopener noreferrer">
+                        EXPLORE PROJECTS ↗
+                    </a>
+                </div>
+            </article>
+
         </div>
-    </footer>
+    </div>
+</section>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- PHILOSOPHY -->
+<section id="approach">
+    <div class="container">
 
-    <script>
-        // AOS ANIMATIONS
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 70
-        });
+        <div class="section-heading reveal">
+            <div class="section-label">// 05 — ENGINEERING MINDSET</div>
+            <div class="section-line"></div>
 
-        // CURRENT YEAR
-        document.getElementById("year").textContent =
-            new Date().getFullYear();
+            <h2 class="section-title">
+                How I approach <span class="red">building.</span>
+            </h2>
+        </div>
+
+        <div class="philosophy-grid">
+
+            <div class="philosophy-card reveal">
+                <div class="philosophy-icon">⌘</div>
+                <h3>Understand the Problem</h3>
+                <p>
+                    Start with real requirements. Understand
+                    the problem before choosing the technology.
+                </p>
+            </div>
+
+            <div class="philosophy-card reveal">
+                <div class="philosophy-icon">⚡</div>
+                <h3>Build and Experiment</h3>
+                <p>
+                    Turn ideas into working prototypes,
+                    test assumptions, and learn through
+                    implementation.
+                </p>
+            </div>
+
+            <div class="philosophy-card reveal">
+                <div class="philosophy-icon">↗</div>
+                <h3>Improve Continuously</h3>
+                <p>
+                    Use feedback, improve the product,
+                    strengthen the engineering, and keep
+                    moving forward.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- FUTURE DIRECTION -->
+<section id="vision">
+    <div class="container">
+
+        <div class="future-panel reveal">
+            <div class="section-label">// 06 — THE VISION</div>
+
+            <h3>
+                More than code.<br>
+                <span class="red">Building useful technology.</span>
+            </h3>
+
+            <p>
+                My long-term direction is to become a strong
+                AI Engineer and build intelligent software
+                products. I'm particularly interested in AI
+                agents, workflow automation, SaaS architecture,
+                and tools that help clinics and businesses
+                operate more effectively.
+            </p>
+
+            <div class="future-tags">
+                <span>AI AGENTS</span>
+                <span>LLM APPLICATIONS</span>
+                <span>SAAS</span>
+                <span>BACKEND SYSTEMS</span>
+                <span>INTELLIGENT AUTOMATION</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <div class="container">
+
+        <div class="contact-panel reveal">
+            <div class="section-label">// 07 — CONTACT</div>
+
+            <h2>
+                Have an idea?<br>
+                Let's <span class="red">build it.</span>
+            </h2>
+
+            <p>
+                I'm open to meaningful collaborations,
+                software projects, freelance opportunities,
+                and conversations around AI and technology.
+            </p>
+
+            <a href="mailto:mddilshadamir@gmail.com" class="contact-button">
+                LET'S CONNECT ↗
+            </a>
+
+            <div class="social-links">
+                <a href="https://linkedin.com/in/md-dilshad-amir-4bb505401/" target="_blank" rel="noopener noreferrer">LINKEDIN ↗</a>
+                <a href="https://github.com/mddilshadamirai" target="_blank" rel="noopener noreferrer">GITHUB ↗</a>
+                <a href="https://x.com/" target="_blank" rel="noopener noreferrer">X ↗</a>
+                <a href="https://www.instagram.com/mddilshadamirai/" target="_blank" rel="noopener noreferrer">INSTAGRAM ↗</a>
+                <a href="https://www.youtube.com/@MdDilshadAmir" target="_blank" rel="noopener noreferrer">YOUTUBE ↗</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container footer-inner">
+        <p>© <span id="year"></span> MD DILSHAD AMIR</p>
+        <p>DESIGNED WITH PURPOSE · BUILT WITH CURIOSITY</p>
+        <p class="red">AI ENGINEER / SOFTWARE ENGINEER</p>
+    </div>
+</footer>
+
+</div>
+
+<script>
+/* CURRENT YEAR */
+document.getElementById("year").textContent =
+    new Date().getFullYear();
 
 
-        // AUTOMATIC IFRAME HEIGHT
-        // Works when both HTML files are served from the same origin.
-        const banner = document.getElementById("cyberBanner");
+/* MOBILE NAVIGATION */
+const menuButton = document.getElementById("menuButton");
+const navLinks = document.getElementById("navLinks");
 
-        function resizeBanner() {
-            try {
-                const doc = banner.contentDocument;
+menuButton.addEventListener("click", () => {
+    navLinks.classList.toggle("open");
+    menuButton.textContent =
+        navLinks.classList.contains("open") ? "CLOSE ✕" : "MENU ☰";
+});
 
-                if (!doc) return;
+navLinks.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuButton.textContent = "MENU ☰";
+    });
+});
 
-                const body = doc.body;
-                const html = doc.documentElement;
 
-                const height = Math.max(
-                    body.scrollHeight,
-                    body.offsetHeight,
-                    html.scrollHeight,
-                    html.offsetHeight,
-                    html.clientHeight
+/* SCROLL PROGRESS */
+const progressBar = document.getElementById("progressBar");
+
+function updateProgress() {
+    const scrollable =
+        document.documentElement.scrollHeight - window.innerHeight;
+
+    const progress = scrollable > 0
+        ? (window.scrollY / scrollable) * 100
+        : 0;
+
+    progressBar.style.width = progress + "%";
+}
+
+window.addEventListener("scroll", updateProgress, { passive: true });
+updateProgress();
+
+
+/* SCROLL REVEAL */
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.12
+});
+
+document.querySelectorAll(".reveal").forEach(element => {
+    revealObserver.observe(element);
+});
+
+
+/* ACTIVE NAVIGATION */
+const sections = document.querySelectorAll("main section[id]");
+const navItems = document.querySelectorAll(".nav-links a");
+
+const activeObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            navItems.forEach(link => {
+                link.classList.toggle(
+                    "active",
+                    link.getAttribute("href") === "#" + entry.target.id
                 );
-
-                if (height > 0) {
-                    banner.style.height = (height + 10) + "px";
-                }
-
-            } catch (error) {
-                // Cross-origin fallback: use the default iframe height.
-                console.warn("Banner auto-resize unavailable:", error);
-            }
-        }
-
-        banner.addEventListener("load", () => {
-            resizeBanner();
-
-            try {
-                const doc = banner.contentDocument;
-
-                if (doc && doc.body) {
-                    const observer = new ResizeObserver(() => {
-                        resizeBanner();
-                    });
-
-                    observer.observe(doc.documentElement);
-                    observer.observe(doc.body);
-
-                    doc.querySelectorAll("img").forEach(img => {
-                        img.addEventListener("load", resizeBanner);
-                    });
-                }
-            } catch (error) {
-                console.warn("Could not observe banner size:", error);
-            }
-
-            // Recheck after fonts, images, and animations settle.
-            setTimeout(resizeBanner, 300);
-            setTimeout(resizeBanner, 1000);
-            setTimeout(resizeBanner, 2000);
-        });
-
-        window.addEventListener("resize", resizeBanner);
-
-
-        // PARTICLE BACKGROUND
-        const canvas = document.getElementById("particles");
-        const ctx = canvas.getContext("2d");
-
-        let particles = [];
-        let mouse = { x: -1000, y: -1000 };
-
-        function setCanvasSize() {
-            const dpr = Math.min(window.devicePixelRatio || 1, 2);
-
-            canvas.width = window.innerWidth * dpr;
-            canvas.height = window.innerHeight * dpr;
-
-            canvas.style.width = window.innerWidth + "px";
-            canvas.style.height = window.innerHeight + "px";
-
-            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        }
-
-        function createParticles() {
-            particles = [];
-
-            const count = Math.min(
-                Math.floor(window.innerWidth / 12),
-                100
-            );
-
-            for (let i = 0; i < count; i++) {
-                particles.push({
-                    x: Math.random() * window.innerWidth,
-                    y: Math.random() * window.innerHeight,
-                    size: Math.random() * 1.5 + .4,
-                    speed: Math.random() * .25 + .08,
-                    opacity: Math.random() * .5 + .1
-                });
-            }
-        }
-
-        function animateParticles() {
-            ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-
-            particles.forEach(p => {
-                p.y -= p.speed;
-
-                if (p.y < 0) {
-                    p.y = window.innerHeight;
-                    p.x = Math.random() * window.innerWidth;
-                }
-
-                const dx = mouse.x - p.x;
-                const dy = mouse.y - p.y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-
-                if (distance < 100) {
-                    p.x -= dx * .002;
-                    p.y -= dy * .002;
-                }
-
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(255,48,48,${p.opacity})`;
-                ctx.fill();
             });
+        }
+    });
+}, {
+    rootMargin: "-30% 0px -60% 0px"
+});
 
-            requestAnimationFrame(animateParticles);
+sections.forEach(section => activeObserver.observe(section));
+
+
+/* PARTICLE BACKGROUND */
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+let particles = [];
+let mouse = { x: -1000, y: -1000 };
+
+function resizeCanvas() {
+    const ratio = Math.min(window.devicePixelRatio || 1, 2);
+
+    canvas.width = window.innerWidth * ratio;
+    canvas.height = window.innerHeight * ratio;
+
+    canvas.style.width = window.innerWidth + "px";
+    canvas.style.height = window.innerHeight + "px";
+
+    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+}
+
+function createParticles() {
+    particles = [];
+
+    const amount = Math.min(
+        Math.floor(window.innerWidth / 13),
+        85
+    );
+
+    for (let i = 0; i < amount; i++) {
+        particles.push({
+            x: Math.random() * window.innerWidth,
+            y: Math.random() * window.innerHeight,
+            size: Math.random() * 1.4 + .4,
+            speed: Math.random() * .22 + .06,
+            opacity: Math.random() * .35 + .08
+        });
+    }
+}
+
+function drawParticles() {
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+    particles.forEach(p => {
+        p.y -= p.speed;
+
+        if (p.y < -5) {
+            p.y = window.innerHeight + 5;
+            p.x = Math.random() * window.innerWidth;
         }
 
-        window.addEventListener("mousemove", event => {
-            mouse.x = event.clientX;
-            mouse.y = event.clientY;
-        });
+        const dx = mouse.x - p.x;
+        const dy = mouse.y - p.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
 
-        window.addEventListener("mouseout", () => {
-            mouse.x = -1000;
-            mouse.y = -1000;
-        });
+        if (distance < 100) {
+            p.x -= dx * .002;
+            p.y -= dy * .002;
+        }
 
-        window.addEventListener("resize", () => {
-            setCanvasSize();
-            createParticles();
-        });
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,52,52,${p.opacity})`;
+        ctx.fill();
+    });
 
-        setCanvasSize();
-        createParticles();
-        animateParticles();
-    </script>
+    requestAnimationFrame(drawParticles);
+}
+
+window.addEventListener("mousemove", event => {
+    mouse.x = event.clientX;
+    mouse.y = event.clientY;
+});
+
+window.addEventListener("mouseout", () => {
+    mouse.x = -1000;
+    mouse.y = -1000;
+});
+
+window.addEventListener("resize", () => {
+    resizeCanvas();
+    createParticles();
+});
+
+resizeCanvas();
+createParticles();
+drawParticles();
+</script>
 
 </body>
 </html>
